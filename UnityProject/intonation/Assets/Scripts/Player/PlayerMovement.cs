@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using EvilOwl.Player.Input_System;
 
@@ -10,14 +11,24 @@ namespace EvilOwl.Player
 		/*****************************
 		 *         Variables         *
 		 *****************************/
+		[Header("Properties")]
 		[SerializeField] private float speed;
 		[SerializeField] private float runMultiplier;
 		[SerializeField] private float jumpForce;
-		[SerializeField] private Rigidbody2D myRigidbody;
 		
+		[Header("References")]
+		[SerializeField] private Rigidbody2D myRigidbody;
+		[SerializeField] private Animator myAnimator;
+
 		private MainControls _controls;
 		private int _moveDirection;
 		private float _runMultiplier = 1;
+		private bool _grounded;
+		
+		//Animation Ids
+		private static readonly int PlayerIsMoving = Animator.StringToHash("PlayerIsMoving");
+		private static readonly int PlayerJumped = Animator.StringToHash("PlayerJumped");
+
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -76,21 +87,33 @@ namespace EvilOwl.Player
 			if ( value > 0)
 			{
 				_moveDirection = 1;
+				var currentScale = transform.localScale;
+				transform.localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
 			}
 			else if(value < 0)
 			{
 				_moveDirection = -1;
+				
+				var currentScale = transform.localScale;
+				transform.localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
 			}
+			myAnimator.SetBool(PlayerIsMoving,true);
 		}
 
 		private void StopPlayer(InputAction.CallbackContext context)
 		{
 			_moveDirection = 0;
+			myAnimator.SetBool(PlayerIsMoving,false);
 		}
 
 		private void Jump(InputAction.CallbackContext context)
 		{
+			if (!_grounded) return;
+			
 			myRigidbody.AddForce(Vector2.up * (jumpForce * 10));
+			myAnimator.SetTrigger(PlayerJumped);
+			_grounded = false;
+
 		}
 
 		private void Fire(InputAction.CallbackContext context)
@@ -106,6 +129,19 @@ namespace EvilOwl.Player
 		private void StopRun(InputAction.CallbackContext context)
 		{
 			_runMultiplier = 1;
+		}
+
+		private void OnCollisionEnter2D()
+		{
+			_grounded = true;
+		}
+
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			if (!other.gameObject.CompareTag("KillZone")) return;
+			
+			print("Killed");
+			transform.position = new Vector3(0,0,0);
 		}
 	}
 }

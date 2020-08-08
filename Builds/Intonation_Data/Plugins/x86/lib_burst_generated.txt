@@ -24,10 +24,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll
---root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Core.dll
+--root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Player.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.2D.Common.Runtime.dll
+--root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Core.dll
 --assembly-folder=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoGetCSRTrampoline()--89425a97f3f500fa810ad03f0c382542
 --method=Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEngine.U2D.SpriteShapeGenerator, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.U2D.SpriteShapeGenerator&, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--a185c62eba2497c95197140e5282b27a
@@ -58,10 +59,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll
---root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Core.dll
+--root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Player.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
 --root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Unity.2D.Common.Runtime.dll
+--root-assembly=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\Core.dll
 --assembly-folder=C:\Users\Sakar\UnityProjects\intonation\UnityProject\intonation\Temp\StagingArea\Data\Managed\
 --method=Unity.Burst.Intrinsics.X86, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::DoGetCSRTrampoline()--89425a97f3f500fa810ad03f0c382542
 --method=Unity.Jobs.IJobExtensions+JobStruct`1[[UnityEngine.U2D.SpriteShapeGenerator, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.U2D.SpriteShapeGenerator&, Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--a185c62eba2497c95197140e5282b27a
