@@ -11,11 +11,13 @@ namespace EvilOwl.Player
 		 *         Variables         *
 		 *****************************/
 		[SerializeField] private float speed;
+		[SerializeField] private float runMultiplier;
 		[SerializeField] private float jumpForce;
 		[SerializeField] private Rigidbody2D myRigidbody;
 		
 		private MainControls _controls;
 		private int _moveDirection;
+		private float _runMultiplier = 1;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -42,7 +44,7 @@ namespace EvilOwl.Player
 		{
 			if (_moveDirection != 0)
 			{
-				transform.position += new Vector3(_moveDirection * speed * Time.deltaTime, 0,0);
+				transform.position += new Vector3(_moveDirection * speed * _runMultiplier * Time.deltaTime, 0,0);
 			}
 		}
 
@@ -62,6 +64,10 @@ namespace EvilOwl.Player
 			
 			//Fire
 			_controls.Player.Fire.performed += Fire;
+			
+			//
+			_controls.Player.Sprint.performed += Run;
+			_controls.Player.Sprint.canceled += StopRun;
 		}
 		private void MovePlayer(InputAction.CallbackContext context)
 		{
@@ -90,6 +96,16 @@ namespace EvilOwl.Player
 		private void Fire(InputAction.CallbackContext context)
 		{ 
 			print("Fire!");
+		}
+
+		private void Run(InputAction.CallbackContext context)
+		{
+			_runMultiplier = runMultiplier;
+		}
+
+		private void StopRun(InputAction.CallbackContext context)
+		{
+			_runMultiplier = 1;
 		}
 	}
 }
