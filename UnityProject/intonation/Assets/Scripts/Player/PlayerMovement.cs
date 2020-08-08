@@ -11,22 +11,17 @@ namespace EvilOwl.Player
 		 *         Variables         *
 		 *****************************/
 		[SerializeField] private float speed;
+		[SerializeField] private float jumpForce;
 		[SerializeField] private Rigidbody2D myRigidbody;
 		
 		private MainControls _controls;
 		private int _moveDirection;
-		private Transform _myTransform;
-		private Vector3 _myTransformPosition;
-		
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
 		 *****************************/
 		private void Awake()
 		{
-			_myTransform = transform;
-			_myTransformPosition = _myTransform.position;
-			
 			InitializeInput();
 		}
 
@@ -45,10 +40,9 @@ namespace EvilOwl.Player
 		 *****************************/
 		private void Update()
 		{
-			print(_moveDirection);
 			if (_moveDirection != 0)
 			{
-				_myTransformPosition.x += _moveDirection * speed;
+				transform.position += new Vector3(_moveDirection * speed * Time.deltaTime, 0,0);
 			}
 		}
 
@@ -72,6 +66,7 @@ namespace EvilOwl.Player
 		private void MovePlayer(InputAction.CallbackContext context)
 		{
 			var value = context.ReadValue<float>();
+			
 			if ( value > 0)
 			{
 				_moveDirection = 1;
@@ -79,10 +74,6 @@ namespace EvilOwl.Player
 			else if(value < 0)
 			{
 				_moveDirection = -1;
-			}
-			else
-			{
-				print("Useless");
 			}
 		}
 
@@ -93,8 +84,7 @@ namespace EvilOwl.Player
 
 		private void Jump(InputAction.CallbackContext context)
 		{
-			print("Jump");
-			myRigidbody.AddForce(Vector2.up);
+			myRigidbody.AddForce(Vector2.up * (jumpForce * 10));
 		}
 
 		private void Fire(InputAction.CallbackContext context)
