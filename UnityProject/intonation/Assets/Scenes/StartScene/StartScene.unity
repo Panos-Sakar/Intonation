@@ -1419,7 +1419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01433e2d0d03adc41b16c8ee90be2041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
+  jumpForce: 30
   myRigidbody: {fileID: 808630208}
 --- !u!1 &906752092
 GameObject:
