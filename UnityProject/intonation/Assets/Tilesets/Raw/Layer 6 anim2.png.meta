@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: fdcd1542a095b4e4c8de5e97ef826a2d
+guid: 6e963acf03056f44a837810a6eecc429
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1225278227426071751
-    second: Layer 3 anim1_0
-  - first:
-      213: -7748724149917924775
-    second: Layer 3 anim1_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,12 +41,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,49 +135,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Layer 3 anim1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 475
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93baf37a1ffeefee0800000000000000
-      internalID: -1225278227426071751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Layer 3 anim1_1
-      rect:
-        serializedVersion: 2
-        x: 475
-        y: 0
-        width: 475
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 952c6ada070077490800000000000000
-      internalID: -7748724149917924775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

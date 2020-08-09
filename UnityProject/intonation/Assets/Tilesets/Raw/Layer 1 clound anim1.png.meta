@@ -1,7 +1,67 @@
 fileFormatVersion: 2
-guid: 6e963acf03056f44a837810a6eecc429
+guid: ce000d787c9b9cf44b3383e09ddb1919
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2882173930840797515
+    second: Layer 1 clound anim1_0
+  - first:
+      213: 1943536469205845407
+    second: Layer 1 clound anim1_1
+  - first:
+      213: -2717225435368258521
+    second: Layer 1 clound anim1_0
+  - first:
+      213: -4805903971061339880
+    second: Layer 1 clound anim1_1
+  - first:
+      213: 1651761173253875084
+    second: Layer 1 clound anim1_2
+  - first:
+      213: -3779993897963518693
+    second: Layer 1 clound anim1_3
+  - first:
+      213: -1026505694259989051
+    second: Layer 1 clound anim1_4
+  - first:
+      213: 8294979202550814509
+    second: Layer 1 clound anim1_5
+  - first:
+      213: 4093732729785107405
+    second: Layer 1 clound anim1_6
+  - first:
+      213: 8877317963915858093
+    second: Layer 1 clound anim1_7
+  - first:
+      213: -8595242521883967885
+    second: Layer 1 clound anim1_8
+  - first:
+      213: 7416731458694121174
+    second: Layer 1 clound anim1_9
+  - first:
+      213: 9198600949096799927
+    second: Layer 1 clound anim1_10
+  - first:
+      213: 8764818913316763817
+    second: Layer 1 clound anim1_11
+  - first:
+      213: -6110534438599090776
+    second: Layer 1 clound anim1_12
+  - first:
+      213: 4698485385346622670
+    second: Layer 1 clound anim1_13
+  - first:
+      213: -6247838529303087551
+    second: Layer 1 clound anim1_14
+  - first:
+      213: 3649632621819385750
+    second: Layer 1 clound anim1_15
+  - first:
+      213: 7430526733653876218
+    second: Layer 1 clound anim1_16
+  - first:
+      213: 5617868156349926881
+    second: Layer 1 clound anim1_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +101,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,7 +195,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Layer 1 clound anim1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 146
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724083eecd97a4ad0800000000000000
+      internalID: -2717225435368258521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer 1 clound anim1_1
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 0
+        width: 90
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819ef341dcffd4db0800000000000000
+      internalID: -4805903971061339880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

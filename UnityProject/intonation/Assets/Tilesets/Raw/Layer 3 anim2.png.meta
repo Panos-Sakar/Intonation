@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 79102895656297791
     second: Layer 3 anim2_1
+  - first:
+      213: -8728503536366092314
+    second: Layer 3 anim2_0
+  - first:
+      213: 6454520776158154817
+    second: Layer 3 anim2_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -148,17 +154,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 475
-        height: 256
+        width: 440
+        height: 166
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 361105b02d3caae60800000000000000
-      internalID: 7974401397113229667
+      spriteID: 6ef782e77402ed680800000000000000
+      internalID: -8728503536366092314
       vertices: []
       indices: 
       edges: []
@@ -167,19 +173,19 @@ TextureImporter:
       name: Layer 3 anim2_1
       rect:
         serializedVersion: 2
-        x: 475
+        x: 463
         y: 0
-        width: 475
-        height: 256
+        width: 448
+        height: 166
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f356c4c1aa7091100800000000000000
-      internalID: 79102895656297791
+      spriteID: 140194ac270139950800000000000000
+      internalID: 6454520776158154817
       vertices: []
       indices: 
       edges: []
