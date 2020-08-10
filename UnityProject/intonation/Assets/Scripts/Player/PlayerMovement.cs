@@ -24,8 +24,11 @@ namespace EvilOwl.Player
 		private int _moveDirection;
 		private float _runMultiplier = 1;
 		private bool _grounded;
-		
-		
+		private static readonly int Animspeed = Animator.StringToHash("animspeed");
+		private static readonly int Isjumping = Animator.StringToHash("isjumping");
+		private static readonly int Isruning = Animator.StringToHash("isruning");
+
+
 		//Animation Ids
 		
 	
@@ -73,11 +76,8 @@ namespace EvilOwl.Player
 			
 			//Jump
 			_controls.Player.Jump.performed += Jump;
-			
-			//Fire
-			_controls.Player.Fire.performed += Fire;
-			
-			//
+
+			//Sprint
 			_controls.Player.Sprint.performed += Run;
 			_controls.Player.Sprint.canceled += StopRun;
 		}
@@ -90,7 +90,7 @@ namespace EvilOwl.Player
 				_moveDirection = 1;
 				var currentScale = transform.localScale;
 				transform.localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
-				MyAnimator.SetFloat ("animspeed" , Math.Abs(currentScale.x));
+				MyAnimator.SetFloat (Animspeed , Math.Abs(currentScale.x));
 			}
 			else if(value < 0)
 			{
@@ -98,7 +98,7 @@ namespace EvilOwl.Player
 				
 				var currentScale = transform.localScale;
 				transform.localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
-				MyAnimator.SetFloat ("animspeed" , Math.Abs(currentScale.x));
+				MyAnimator.SetFloat (Animspeed , Math.Abs(currentScale.x));
 				
 			}
 		}
@@ -106,7 +106,7 @@ namespace EvilOwl.Player
 		private void StopPlayer(InputAction.CallbackContext context)
 		{
 			_moveDirection = 0;
-			MyAnimator.SetFloat ("animspeed" , 0);
+			MyAnimator.SetFloat (Animspeed , 0);
 			
 		}
 
@@ -115,33 +115,28 @@ namespace EvilOwl.Player
 			if (!_grounded) return;
 			
 			myRigidbody.AddForce(Vector2.up * (jumpForce * 10));
-			MyAnimator.SetBool ("isjumping" , true);
+			MyAnimator.SetBool (Isjumping , true);
 			
 			_grounded = false;
 
 		}
 
-		private void Fire(InputAction.CallbackContext context)
-		{ 
-			print("Fire!");
-		}
-
 		private void Run(InputAction.CallbackContext context)
 		{
 			_runMultiplier = runMultiplier;
-			MyAnimator.SetBool ("isruning" , true);
+			MyAnimator.SetBool (Isruning , true);
 		}
 
 		private void StopRun(InputAction.CallbackContext context)
 		{
 			_runMultiplier = 1;
-			MyAnimator.SetBool ("isruning" , false);
+			MyAnimator.SetBool (Isruning , false);
 		}
 
 		private void OnCollisionEnter2D()
 		{
 			_grounded = true;
-			MyAnimator.SetBool ("isjumping" , false);
+			MyAnimator.SetBool (Isjumping , false);
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
