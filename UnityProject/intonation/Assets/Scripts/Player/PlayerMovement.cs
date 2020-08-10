@@ -18,16 +18,17 @@ namespace EvilOwl.Player
 		
 		[Header("References")]
 		[SerializeField] private Rigidbody2D myRigidbody;
-		[SerializeField] private Animator myAnimator;
-
+		
+		public Animator MyAnimator;
 		private MainControls _controls;
 		private int _moveDirection;
 		private float _runMultiplier = 1;
 		private bool _grounded;
 		
+		
 		//Animation Ids
-		private static readonly int PlayerIsMoving = Animator.StringToHash("PlayerIsMoving");
-		private static readonly int PlayerJumped = Animator.StringToHash("PlayerJumped");
+		
+	
 
 #pragma warning restore CS0649
 		/*****************************
@@ -89,6 +90,7 @@ namespace EvilOwl.Player
 				_moveDirection = 1;
 				var currentScale = transform.localScale;
 				transform.localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
+				MyAnimator.SetFloat ("animspeed" , Math.Abs(currentScale.x));
 			}
 			else if(value < 0)
 			{
@@ -96,14 +98,16 @@ namespace EvilOwl.Player
 				
 				var currentScale = transform.localScale;
 				transform.localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
+				MyAnimator.SetFloat ("animspeed" , Math.Abs(currentScale.x));
+				
 			}
-			myAnimator.SetBool(PlayerIsMoving,true);
 		}
 
 		private void StopPlayer(InputAction.CallbackContext context)
 		{
 			_moveDirection = 0;
-			myAnimator.SetBool(PlayerIsMoving,false);
+			MyAnimator.SetFloat ("animspeed" , 0);
+			
 		}
 
 		private void Jump(InputAction.CallbackContext context)
@@ -111,7 +115,8 @@ namespace EvilOwl.Player
 			if (!_grounded) return;
 			
 			myRigidbody.AddForce(Vector2.up * (jumpForce * 10));
-			myAnimator.SetTrigger(PlayerJumped);
+			MyAnimator.SetBool ("isjumping" , true);
+			
 			_grounded = false;
 
 		}
@@ -124,16 +129,19 @@ namespace EvilOwl.Player
 		private void Run(InputAction.CallbackContext context)
 		{
 			_runMultiplier = runMultiplier;
+			MyAnimator.SetBool ("isruning" , true);
 		}
 
 		private void StopRun(InputAction.CallbackContext context)
 		{
 			_runMultiplier = 1;
+			MyAnimator.SetBool ("isruning" , false);
 		}
 
 		private void OnCollisionEnter2D()
 		{
 			_grounded = true;
+			MyAnimator.SetBool ("isjumping" , false);
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
