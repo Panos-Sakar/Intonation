@@ -20,9 +20,11 @@ namespace EvilOwl.Player
 		[SerializeField] private Rigidbody2D myRigidbody;
 		
 		public Animator MyAnimator;
+		public Animator MyAnimator2;
 		private MainControls _controls;
 		private int _moveDirection;
 		private float _runMultiplier = 1;
+		
 		private bool _grounded;
 		private static readonly int Animspeed = Animator.StringToHash("animspeed");
 		private static readonly int Isjumping = Animator.StringToHash("isjumping");
@@ -57,6 +59,7 @@ namespace EvilOwl.Player
 		 *****************************/
 		private void Update()
 		{
+			
 			if (_moveDirection != 0)
 			{
 				transform.position += new Vector3(_moveDirection * speed * _runMultiplier * Time.deltaTime, 0,0);
