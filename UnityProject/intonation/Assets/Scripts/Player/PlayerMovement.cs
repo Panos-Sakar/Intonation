@@ -20,7 +20,6 @@ namespace EvilOwl.Player
 		[SerializeField] private Rigidbody2D myRigidbody;
 		
 		public Animator MyAnimator;
-		public Animator MyAnimator2;
 		private MainControls _controls;
 		private int _moveDirection;
 		private float _runMultiplier = 1;
