@@ -1,26 +1,24 @@
-﻿using System.Collections.Generic;
-using EvilOwl.Player.Input_System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using EvilOwl.Player.Input_System;
 
 namespace EvilOwl.Player
 {
-	public class SpellManager : MonoBehaviour
+	public class TileColorChangeTest : MonoBehaviour
 	{
 #pragma warning disable CS0649
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		[Header("Properties")]
-		[SerializeField] private int maxSpells;
-		[SerializeField] private float spellSpacing;
+		[SerializeField] private SpriteRenderer sprite;
+		[SerializeField] private Animator animator;
 		
-		[Header("References")]
-		[SerializeField] private GameObject spellPrefab;
+		[Header("Colors")] 
+		[SerializeField] private Color defaultColor;
+		[SerializeField] private SpellColors spellColors;
 
-		
 		private MainControls _controls;
-		private List<GameObject> _spells;
+		private static readonly int StartSoundwave = Animator.StringToHash("StartSoundwave");
 
 #pragma warning restore CS0649
 		/*****************************
@@ -29,7 +27,6 @@ namespace EvilOwl.Player
 		private void Awake()
 		{
 			InitializeInput();
-			_spells = new List<GameObject>();
 		}
 		
 		private void OnEnable()
@@ -61,33 +58,31 @@ namespace EvilOwl.Player
 		
 		private void Red(InputAction.CallbackContext context)
 		{
-			if (_spells.Count < maxSpells) CreateSpell(SpellType.Red);
+			sprite.color = spellColors.redEffectColour;
+			animator.SetTrigger(StartSoundwave);
 		}
 		
 		private void Green(InputAction.CallbackContext context)
 		{
-			if (_spells.Count < maxSpells) CreateSpell(SpellType.Green);
+			sprite.color = spellColors.greenEffectColour;
+			animator.SetTrigger(StartSoundwave);
 		}
 		
 		private void Blue(InputAction.CallbackContext context)
 		{
-			if (_spells.Count < maxSpells) CreateSpell(SpellType.Blue);
+			sprite.color = spellColors.blueEffectColour;
+			animator.SetTrigger(StartSoundwave);
 		}
 		
 		private void Yellow(InputAction.CallbackContext context)
 		{
-			if (_spells.Count < maxSpells) CreateSpell(SpellType.Yellow);
+			sprite.color = spellColors.yellowEffectColour;
+			animator.SetTrigger(StartSoundwave);
 		}
 
-		private void CreateSpell(SpellType type)
+		public void ResetColor()
 		{
-			var newSpell = Instantiate(spellPrefab, transform);
-			
-			
-			newSpell.GetComponent<Spell>().Initialise(_spells.Count, spellSpacing, type);
-			
-			_spells.Add(newSpell);
-			
+			sprite.color = defaultColor;
 		}
 	}
 }

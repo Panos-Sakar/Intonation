@@ -19,15 +19,15 @@ namespace EvilOwl.Player
 		[Header("References")]
 		[SerializeField] private Rigidbody2D myRigidbody;
 		
-		public Animator MyAnimator;
+		public Animator myAnimator;
 		private MainControls _controls;
 		private int _moveDirection;
 		private float _runMultiplier = 1;
 		
 		private bool _grounded;
-		private static readonly int Animspeed = Animator.StringToHash("animspeed");
-		private static readonly int Isjumping = Animator.StringToHash("isjumping");
-		private static readonly int Isruning = Animator.StringToHash("isruning");
+		private static readonly int MoveSpeed = Animator.StringToHash("moveSpeed");
+		private static readonly int IsJumping = Animator.StringToHash("isJumping");
+		private static readonly int IsRunning = Animator.StringToHash("isRunning");
 
 
 		//Animation Ids
@@ -89,26 +89,32 @@ namespace EvilOwl.Player
 			
 			if ( value > 0)
 			{
+				Transform myTransform;
+				
 				_moveDirection = 1;
+				
 				var currentScale = transform.localScale;
-				transform.localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
-				MyAnimator.SetFloat (Animspeed , Math.Abs(currentScale.x));
+				(myTransform = transform).localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
+				
+				myAnimator.SetFloat (MoveSpeed , Math.Abs(myTransform.position.x));
 			}
 			else if(value < 0)
 			{
+				Transform myTransform;
+				
 				_moveDirection = -1;
 				
 				var currentScale = transform.localScale;
-				transform.localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
-				MyAnimator.SetFloat (Animspeed , Math.Abs(currentScale.x));
+				(myTransform = transform).localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
 				
+				myAnimator.SetFloat (MoveSpeed , Math.Abs(myTransform.position.x));
 			}
 		}
 
 		private void StopPlayer(InputAction.CallbackContext context)
 		{
 			_moveDirection = 0;
-			MyAnimator.SetFloat (Animspeed , 0);
+			myAnimator.SetFloat (MoveSpeed , 0);
 			
 		}
 
@@ -117,7 +123,7 @@ namespace EvilOwl.Player
 			if (!_grounded) return;
 			
 			myRigidbody.AddForce(Vector2.up * (jumpForce * 10));
-			MyAnimator.SetBool (Isjumping , true);
+			myAnimator.SetBool (IsJumping , true);
 			
 			_grounded = false;
 
@@ -126,19 +132,19 @@ namespace EvilOwl.Player
 		private void Run(InputAction.CallbackContext context)
 		{
 			_runMultiplier = runMultiplier;
-			MyAnimator.SetBool (Isruning , true);
+			myAnimator.SetBool (IsRunning , true);
 		}
 
 		private void StopRun(InputAction.CallbackContext context)
 		{
 			_runMultiplier = 1;
-			MyAnimator.SetBool (Isruning , false);
+			myAnimator.SetBool (IsRunning , false);
 		}
 
 		private void OnCollisionEnter2D()
 		{
 			_grounded = true;
-			MyAnimator.SetBool (Isjumping , false);
+			myAnimator.SetBool (IsJumping , false);
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)

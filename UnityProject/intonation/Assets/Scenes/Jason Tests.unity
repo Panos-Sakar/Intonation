@@ -440,7 +440,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 11
   m_Sprite: {fileID: 3340777750353019999, guid: d325cc62126ab3249b19b0190140b2d1, type: 3}
-  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+  m_Color: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
   m_FlipX: 1
   m_FlipY: 1
   m_DrawMode: 0
@@ -3139,7 +3139,7 @@ MonoBehaviour:
   runMultiplier: 1.8
   jumpForce: 60
   myRigidbody: {fileID: 808630208}
-  MyAnimator: {fileID: 1488793420}
+  myAnimator: {fileID: 1488793420}
 --- !u!1 &906752092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4893,6 +4893,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1488793421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488793418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b562e4d53af1c094e80c4357dcf5b362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 203502018}
+  animator: {fileID: 1488793420}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  spellColors: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
 --- !u!4 &1519410584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3381122016002565270, guid: ede92cbe03be535499690375fdb63584, type: 3}
