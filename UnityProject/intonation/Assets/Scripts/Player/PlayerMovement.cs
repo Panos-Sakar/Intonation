@@ -25,14 +25,11 @@ namespace EvilOwl.Player
 		private float _runMultiplier = 1;
 		
 		private bool _grounded;
+		
+		//Animation Ids
 		private static readonly int MoveSpeed = Animator.StringToHash("moveSpeed");
 		private static readonly int IsJumping = Animator.StringToHash("isJumping");
 		private static readonly int IsRunning = Animator.StringToHash("isRunning");
-
-
-		//Animation Ids
-		
-	
 
 #pragma warning restore CS0649
 		/*****************************
