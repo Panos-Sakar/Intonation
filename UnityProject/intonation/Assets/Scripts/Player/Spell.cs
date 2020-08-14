@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.VFX;
 
 namespace EvilOwl.Player
 {
@@ -10,16 +9,14 @@ namespace EvilOwl.Player
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		[SerializeField] private VisualEffect vfx;
-		[SerializeField] private Color redEffectColour;
-		[SerializeField] private Color greenEffectColour;
-		[SerializeField] private Color blueEffectColour;
-		[SerializeField] private Color yellowEffectColour;
-			
-		private SpellManager _parent;
+		[SerializeField] private SpriteRenderer spellSprite;
+		[SerializeField] private SpellColors effectColours;
+
+		private GameObject _parent;
 		private Spell _nextSpell;
 		private Spell _previousSpell;
 		private int _position;
+		private float _spacing;
 		private SpellType _type;
 
 #pragma warning restore CS0649
@@ -39,26 +36,37 @@ namespace EvilOwl.Player
 		{
 			_position = position;
 			_type = type;
-			transform.localPosition = new Vector3(_position*spacing,0,0);
+			_spacing = spacing;
 
 			switch (_type)
 			{
 				case SpellType.Red:
-					vfx.SetVector4("BaseColor",redEffectColour);
+					spellSprite.color = effectColours.redEffectColour;
 					break;
 				case SpellType.Green:
-					vfx.SetVector4("BaseColor",greenEffectColour);
+					spellSprite.color = effectColours.greenEffectColour;
 					break;
 				case SpellType.Blue:
-					vfx.SetVector4("BaseColor",blueEffectColour);
+					spellSprite.color = effectColours.blueEffectColour;
 					break;
 				case SpellType.Yellow:
-					vfx.SetVector4("BaseColor",yellowEffectColour);
+					spellSprite.color = effectColours.yellowEffectColour;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
 		}
+		
+		public void PlaceSpellAroundCircle (Vector3 center, float radius, float offset){
+			
+			var radians = 2 * Math.PI + (_position * (_spacing - 1) + offset);
+			var vertical = (float) Math.Sin(radians);
+			var horizontal = (float) Math.Cos(radians); 
+	         
+			var spawnDir = new Vector3 (horizontal, vertical, 0);
+			
+			transform.localPosition = center + spawnDir * radius;
+		}    
 	}
 
 	public enum SpellType

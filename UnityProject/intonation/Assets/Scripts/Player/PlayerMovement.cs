@@ -18,6 +18,7 @@ namespace EvilOwl.Player
 		
 		[Header("References")]
 		[SerializeField] private Rigidbody2D myRigidbody;
+		[SerializeField] private GameObject characterContainer;
 		
 		public Animator myAnimator;
 		private MainControls _controls;
@@ -86,25 +87,21 @@ namespace EvilOwl.Player
 			
 			if ( value > 0)
 			{
-				Transform myTransform;
-				
 				_moveDirection = 1;
 				
-				var currentScale = transform.localScale;
-				(myTransform = transform).localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
+				var currentScale = characterContainer.transform.localScale;
+				characterContainer.transform.localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
 				
-				myAnimator.SetFloat (MoveSpeed , Math.Abs(myTransform.position.x));
+				myAnimator.SetFloat (MoveSpeed , Math.Abs(transform.position.x));
 			}
 			else if(value < 0)
 			{
-				Transform myTransform;
-				
 				_moveDirection = -1;
 				
 				var currentScale = transform.localScale;
-				(myTransform = transform).localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
+				characterContainer.transform.localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
 				
-				myAnimator.SetFloat (MoveSpeed , Math.Abs(myTransform.position.x));
+				myAnimator.SetFloat (MoveSpeed , Math.Abs(transform.position.x));
 			}
 		}
 
