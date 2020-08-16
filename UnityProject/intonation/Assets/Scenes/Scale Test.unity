@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 082b1ce96e705744194997a246e13894, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -347,6 +347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1027895220}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &199730958
 Transform:
   m_ObjectHideFlags: 0
@@ -850,6 +852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1585744625}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &359797171
 Transform:
   m_ObjectHideFlags: 0
@@ -940,6 +944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1739753850}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &386937428
 Transform:
   m_ObjectHideFlags: 0
@@ -1134,6 +1140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1114022388}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &442340252
 Transform:
   m_ObjectHideFlags: 0
@@ -1194,7 +1202,6 @@ GameObject:
   - component: {fileID: 496397691}
   - component: {fileID: 496397693}
   - component: {fileID: 496397696}
-  - component: {fileID: 496397692}
   - component: {fileID: 496397694}
   - component: {fileID: 496397695}
   m_Layer: 0
@@ -1219,27 +1226,6 @@ Transform:
   m_Father: {fileID: 734907882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &496397692
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496397690}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &496397693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,6 +1240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 830054370}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!114 &496397694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1273,7 +1261,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 15
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2191,12 +2179,12 @@ GameObject:
   m_Component:
   - component: {fileID: 734907882}
   m_Layer: 0
-  m_Name: Spring Joint (1)
+  m_Name: AStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &734907882
 Transform:
   m_ObjectHideFlags: 0
@@ -2286,6 +2274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 2005982679}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!114 &738695688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2305,7 +2295,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 15
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2418,6 +2408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1039574949}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &752557877
 Transform:
   m_ObjectHideFlags: 0
@@ -2513,6 +2505,10 @@ PrefabInstance:
     - target: {fileID: 4437998217291305832, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437998217291305832, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4437998217291305835, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2651,6 +2647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 663584732}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &765601194
 Transform:
   m_ObjectHideFlags: 0
@@ -2828,6 +2826,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 429041507}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!232 &796820372
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -3128,6 +3128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1314888223}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &857350019
 Transform:
   m_ObjectHideFlags: 0
@@ -3741,6 +3743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 262885004}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &976420421
 Transform:
   m_ObjectHideFlags: 0
@@ -4058,6 +4062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1343230839}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!231 &1049203824
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -5164,6 +5170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1712295204}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1282599146
 Transform:
   m_ObjectHideFlags: 0
@@ -5497,6 +5505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1963349818}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1376598089
 Transform:
   m_ObjectHideFlags: 0
@@ -5668,6 +5678,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1093513034}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1457596706
 Transform:
   m_ObjectHideFlags: 0
@@ -6061,6 +6073,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 2076900905}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1535499631
 Transform:
   m_ObjectHideFlags: 0
@@ -6229,6 +6243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 598532397}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!114 &1600517076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6248,7 +6264,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 15
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -6380,6 +6396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1306324566}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1629006301
 Transform:
   m_ObjectHideFlags: 0
@@ -6582,6 +6600,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 612696789}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1738100895
 Transform:
   m_ObjectHideFlags: 0
@@ -6757,6 +6777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1381116674}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1749330226
 Transform:
   m_ObjectHideFlags: 0
@@ -6850,6 +6872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 604773544}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1762391823
 Transform:
   m_ObjectHideFlags: 0
@@ -11721,6 +11745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1992931840}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!4 &1926099496
 Transform:
   m_ObjectHideFlags: 0
@@ -12177,6 +12203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 1458363306}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!114 &2099380546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12196,7 +12224,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 15
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -12337,6 +12365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellSprite: {fileID: 3570476160121240775}
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
+  pointLight: {fileID: 0}
+  aStarDestinationSetter: {fileID: 0}
 --- !u!1 &6111776527080095876
 GameObject:
   m_ObjectHideFlags: 0
