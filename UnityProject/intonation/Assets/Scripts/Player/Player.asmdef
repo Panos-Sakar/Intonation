@@ -1,6 +1,7 @@
 {
     "name": "Player",
     "references": [
+        "GUID:0c367cc0c1e93a24689b20b7343eb53b",
         "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:15fc0a57446b3144c949da3e2b9737a9",
         "GUID:efa45043feb7e4147a305b73b5cea642"

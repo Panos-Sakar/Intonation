@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EvilOwl.Core;
 using EvilOwl.Player.Input_System;
 using Pathfinding;
 using UnityEngine;
@@ -122,7 +123,7 @@ namespace EvilOwl.Player
 
 			if (enemy == null)
 			{
-				_spells[0].GetComponent<Spell>().SelfDestruct();
+				_spells[0].GetComponent<Spell>().SelfDestroy();
 			}
 			else
 			{
@@ -149,9 +150,8 @@ namespace EvilOwl.Player
 			
 			PositionSpell(newSpellScript);
 
-			newSpellScript.SetPreviousSpell((_spells.Count > 1) ? _spells[_spells.Count - 2] : null);
-			
-			if(_spells.Count > 1) _spells[_spells.Count - 2].GetComponent<Spell>().SetNextSpell(newSpell);
+			ChainSpells(newSpell, newSpellScript);
+
 			
 			newSpellScript.SetSpellTarget(targetAtPlayer);
 			
@@ -173,6 +173,15 @@ namespace EvilOwl.Player
 			return newSpellScript;
 		}
 
+		private void ChainSpells(GameObject newSpell, Spell newSpellScript)
+		{
+			newSpellScript.SetPreviousSpell((_spells.Count > 1) ? _spells[_spells.Count - 2] : null);
+			
+			if(_spells.Count > 1) _spells[_spells.Count - 2].GetComponent<Spell>().SetNextSpell(newSpell);
+			
+			_spells[0].GetComponent<SpellLeader>()?.AddSpell(newSpellScript.type);
+		}
+		
 		private void PositionSpell(Spell spellScript)
 		{
 			if (spawnAtCenterOfParent)
@@ -184,7 +193,7 @@ namespace EvilOwl.Player
 				spellScript.PlaceSpellAroundCircle(spellsParent.transform.localPosition, spellCircleRadius, spellCircleOffset);
 			}
 		}
-
+		
 		private void StartSpellVfx()
 		{
 			if(_vfxIsActive) return;

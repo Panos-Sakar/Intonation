@@ -349,6 +349,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &199730958
 Transform:
   m_ObjectHideFlags: 0
@@ -854,6 +855,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &359797171
 Transform:
   m_ObjectHideFlags: 0
@@ -946,6 +948,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &386937428
 Transform:
   m_ObjectHideFlags: 0
@@ -1142,6 +1145,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &442340252
 Transform:
   m_ObjectHideFlags: 0
@@ -1242,6 +1246,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!114 &496397694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2276,6 +2281,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!114 &738695688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2410,6 +2416,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &752557877
 Transform:
   m_ObjectHideFlags: 0
@@ -2649,6 +2656,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &765601194
 Transform:
   m_ObjectHideFlags: 0
@@ -2828,6 +2836,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!232 &796820372
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -2860,6 +2869,7 @@ GameObject:
   - component: {fileID: 812149366}
   - component: {fileID: 812149365}
   - component: {fileID: 812149364}
+  - component: {fileID: 812149369}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -2991,6 +3001,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &812149369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812149363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7865976a1bb5941803d55eec909055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellChain: 
+  life: 20
 --- !u!1 &830054368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,6 +3154,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &857350019
 Transform:
   m_ObjectHideFlags: 0
@@ -3745,6 +3770,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &976420421
 Transform:
   m_ObjectHideFlags: 0
@@ -4064,6 +4090,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!231 &1049203824
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -5172,6 +5199,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1282599146
 Transform:
   m_ObjectHideFlags: 0
@@ -5507,6 +5535,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1376598089
 Transform:
   m_ObjectHideFlags: 0
@@ -5680,6 +5709,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1457596706
 Transform:
   m_ObjectHideFlags: 0
@@ -6075,6 +6105,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1535499631
 Transform:
   m_ObjectHideFlags: 0
@@ -6245,6 +6276,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!114 &1600517076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6398,6 +6430,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1629006301
 Transform:
   m_ObjectHideFlags: 0
@@ -6602,6 +6635,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1738100895
 Transform:
   m_ObjectHideFlags: 0
@@ -6779,6 +6813,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1749330226
 Transform:
   m_ObjectHideFlags: 0
@@ -6874,6 +6909,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1762391823
 Transform:
   m_ObjectHideFlags: 0
@@ -11747,6 +11783,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!4 &1926099496
 Transform:
   m_ObjectHideFlags: 0
@@ -12205,6 +12242,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!114 &2099380546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12367,6 +12405,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  type: 0
 --- !u!1 &6111776527080095876
 GameObject:
   m_ObjectHideFlags: 0

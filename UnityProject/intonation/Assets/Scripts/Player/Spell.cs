@@ -1,4 +1,5 @@
 ﻿using System;
+using EvilOwl.Core;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -20,7 +21,7 @@ namespace EvilOwl.Player
 
 		private int _position;
 		private float _spacing;
-		private SpellType _type;
+		public SpellType type;
 		
 		private bool _isSpellLeader;
 		private GameObject _previousSpell;
@@ -40,14 +41,14 @@ namespace EvilOwl.Player
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-		public void Initialise(GameObject parent, int position, float spacing, SpellType type)
+		public void Initialise(GameObject parent, int position, float spacing, SpellType typeOfSpell)
 		{
 			_parent = parent;
 			_position = position;
 			_spacing = spacing;
-			_type = type;
+			type = typeOfSpell;
 
-			switch (_type)
+			switch (type)
 			{
 				case SpellType.Red:
 					spellSprite.color = effectColours.redEffectColour;
@@ -100,6 +101,8 @@ namespace EvilOwl.Player
 		public void MakeSpellLeader()
 		{
 			_isSpellLeader = true;
+			var spellLeader = gameObject.AddComponent(typeof(SpellLeader)) as SpellLeader;
+			if (spellLeader != null) spellLeader.spellObject = this;
 		}
 
 		public void SetSpellTarget(GameObject target)
@@ -107,25 +110,13 @@ namespace EvilOwl.Player
 			aStarDestinationSetter.target = _isSpellLeader ? target.transform : _previousSpell.transform;
 		}
 
-		public void SelfDestruct()
+		public void SelfDestroy()
 		{
-			if(_nextSpell != null) _nextSpell.GetComponent<Spell>().SelfDestruct();
+			if(_nextSpell != null) _nextSpell.GetComponent<Spell>().SelfDestroy();
 			Destroy(gameObject);
 			
 			//TODO: Set next spell in chain to follow enemy?
 			
 		}
-		private void OnTriggerEnter2D(Collider2D other)
-		{
-			if (!other.gameObject.CompareTag("Enemy")) return;
-			SelfDestruct();
-		}
-	}
-	public enum SpellType
-	{
-		Red = 1,
-		Green = 2,
-		Blue = 3,
-		Yellow = 4
 	}
 }

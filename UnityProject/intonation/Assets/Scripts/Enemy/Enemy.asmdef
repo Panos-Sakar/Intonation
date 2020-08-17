@@ -1,7 +1,8 @@
-{
-    "name": "Environment",
+﻿{
+    "name": "Enemy",
     "references": [
-        "GUID:0c367cc0c1e93a24689b20b7343eb53b"
+        "GUID:0c367cc0c1e93a24689b20b7343eb53b",
+        "GUID:2586a0feda556d04a9f994400dae717f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

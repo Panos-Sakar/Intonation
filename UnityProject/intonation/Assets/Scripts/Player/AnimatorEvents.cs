@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 
 namespace EvilOwl.Player
 {
@@ -11,6 +12,7 @@ namespace EvilOwl.Player
 
 #pragma warning restore CS0649
 
+		[UsedImplicitly]
 		public void ResetColor()
 		{
 			sprite.color = defaultColor;
