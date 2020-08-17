@@ -16,12 +16,12 @@ namespace EvilOwl.Player
 		[SerializeField] private SpellColors effectColours;
 		[SerializeField] private Light2D pointLight;
 		[SerializeField] private AIDestinationSetter aStarDestinationSetter;
-
-		private GameObject _parent;
+		[SerializeField] private DistanceJoint2D joint;
 
 		private int _position;
 		private float _spacing;
 		public SpellType type;
+		private bool _useJoint;
 		
 		private bool _isSpellLeader;
 		private GameObject _previousSpell;
@@ -41,12 +41,12 @@ namespace EvilOwl.Player
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-		public void Initialise(GameObject parent, int position, float spacing, SpellType typeOfSpell)
+		public void Initialise(int position, float spacing, SpellType typeOfSpell, bool useJoint)
 		{
-			_parent = parent;
 			_position = position;
 			_spacing = spacing;
 			type = typeOfSpell;
+			_useJoint = useJoint;
 
 			switch (type)
 			{
@@ -83,11 +83,6 @@ namespace EvilOwl.Player
 			
 		}
 
-		public void PlaceSpellAtParent()
-		{
-			transform.localPosition = _parent.transform.localPosition;
-		}
-		
 		public void SetNextSpell(GameObject nextSpell)
 		{
 			_nextSpell = nextSpell;
@@ -108,6 +103,13 @@ namespace EvilOwl.Player
 		public void SetSpellTarget(GameObject target)
 		{
 			aStarDestinationSetter.target = _isSpellLeader ? target.transform : _previousSpell.transform;
+
+			if (_useJoint)
+			{
+				if(_isSpellLeader) return;
+				joint.enabled = true;
+				joint.connectedBody = aStarDestinationSetter.target.GetComponent<Rigidbody2D>();
+			}
 		}
 
 		public void SelfDestroy()

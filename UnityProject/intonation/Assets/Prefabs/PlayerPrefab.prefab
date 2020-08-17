@@ -47,11 +47,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpells: 5
+  useJoints: 0
+  spawnAtCenterOfParent: 1
   spellSpacing: 0.5
   spellCircleRadius: 7.25
   spellCircleOffset: 1
-  spawnAtCenterOfParent: 1
   targetAtPlayer: {fileID: 7222712382238798096}
+  defaultSpeed: 15
+  increaseSpeedWhenSeeking: 1
+  seekingSpeed: 150
+  increaseSpeedWhenWalking: 1
+  walkingSpeed: 70
   spellsParent: {fileID: 6406356585032332505}
   spellPrefab: {fileID: 6111776527398995091, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
   spellColors: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}

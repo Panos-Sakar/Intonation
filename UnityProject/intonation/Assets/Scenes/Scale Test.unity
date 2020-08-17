@@ -155,7 +155,7 @@ Transform:
   - {fileID: 386937428}
   - {fileID: 796820368}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169900614
 GameObject:
@@ -349,6 +349,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &199730958
 Transform:
@@ -855,6 +856,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &359797171
 Transform:
@@ -948,6 +950,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &386937428
 Transform:
@@ -1145,6 +1148,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &442340252
 Transform:
@@ -1193,7 +1197,7 @@ Transform:
   - {fileID: 1738100895}
   - {fileID: 199730958}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &496397690
 GameObject:
@@ -1246,6 +1250,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!114 &496397694
 MonoBehaviour:
@@ -1325,6 +1330,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 1781336868}
+--- !u!1001 &518450387
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995090, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995091, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_Name
+      value: Spell
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995091, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111776527398995093, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+      propertyPath: useJoints
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
 --- !u!1 &598532395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,7 +2276,7 @@ Transform:
   - {fileID: 1600517073}
   - {fileID: 738695685}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &738695684
 GameObject:
@@ -2281,6 +2351,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!114 &738695688
 MonoBehaviour:
@@ -2416,6 +2487,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &752557877
 Transform:
@@ -2484,7 +2556,7 @@ Transform:
   - {fileID: 1749330226}
   - {fileID: 1762391823}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &762929518
 PrefabInstance:
@@ -2547,7 +2619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4437998217291305835, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4437998217291305835, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2560,6 +2632,14 @@ PrefabInstance:
     - target: {fileID: 4437998217291305835, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699381824765423705, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: spellsParent
+      value: 
+      objectReference: {fileID: 2016943922}
+    - target: {fileID: 4699381824765423705, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: useJoints
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6983687613506377431, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2656,6 +2736,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &765601194
 Transform:
@@ -2836,6 +2917,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!232 &796820372
 DistanceJoint2D:
@@ -2999,7 +3081,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &812149369
 MonoBehaviour:
@@ -3154,6 +3236,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &857350019
 Transform:
@@ -3770,6 +3853,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &976420421
 Transform:
@@ -4090,6 +4174,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!231 &1049203824
 SpringJoint2D:
@@ -5199,6 +5284,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1282599146
 Transform:
@@ -5535,6 +5621,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1376598089
 Transform:
@@ -5709,6 +5796,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1457596706
 Transform:
@@ -6105,6 +6193,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1535499631
 Transform:
@@ -6276,6 +6365,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!114 &1600517076
 MonoBehaviour:
@@ -6430,6 +6520,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1629006301
 Transform:
@@ -6477,7 +6568,7 @@ Transform:
   - {fileID: 1778630681}
   - {fileID: 992887901}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712295203
 GameObject:
@@ -6635,6 +6726,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1738100895
 Transform:
@@ -6813,6 +6905,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1749330226
 Transform:
@@ -6909,6 +7002,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1762391823
 Transform:
@@ -7014,7 +7108,7 @@ Transform:
   - {fileID: 359797171}
   - {fileID: 1629006301}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1781336868 stripped
 Transform:
@@ -7289,7 +7383,7 @@ Transform:
   - {fileID: 752557877}
   - {fileID: 1049203820}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922549622
 GameObject:
@@ -11783,6 +11877,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!4 &1926099496
 Transform:
@@ -12087,6 +12182,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2016943922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016943923}
+  m_Layer: 0
+  m_Name: SpellParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016943923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016943922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5807984, y: -7.905981, z: -262.00107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076900904
 GameObject:
   m_ObjectHideFlags: 0
@@ -12242,6 +12367,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!114 &2099380546
 MonoBehaviour:
@@ -12405,6 +12531,7 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 0}
   aStarDestinationSetter: {fileID: 0}
+  joint: {fileID: 0}
   type: 0
 --- !u!1 &6111776527080095876
 GameObject:

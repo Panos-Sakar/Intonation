@@ -13,13 +13,23 @@ namespace EvilOwl.Player
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		[Header("Properties")]
+		[Header("General")]
 		[SerializeField] private int maxSpells;
+		[SerializeField] private bool useJoints;
+		
+		[Header("Positioning")]
+		[SerializeField] private bool spawnAtCenterOfParent;
 		[SerializeField] private float spellSpacing;
 		[SerializeField] private float spellCircleRadius;
 		[SerializeField] private float spellCircleOffset;
-		[SerializeField] private bool spawnAtCenterOfParent;
+		
+		[Header("Targeting")] 
 		[SerializeField] private GameObject targetAtPlayer;
+		[SerializeField] private float defaultSpeed;
+		[SerializeField] private bool increaseSpeedWhenSeeking;
+		[SerializeField] private float seekingSpeed;
+		[SerializeField] private bool increaseSpeedWhenWalking;
+		[SerializeField] private float walkingSpeed;
 
 		[Header("References")] 
 		[SerializeField] private GameObject spellsParent;
@@ -33,6 +43,7 @@ namespace EvilOwl.Player
 		private List<GameObject> _spells;
 
 		private bool _vfxIsActive;
+		private bool _speedIncreased;
 		
 		private static readonly int StartSoundwave = Animator.StringToHash("StartSoundwave");
 		
@@ -66,6 +77,9 @@ namespace EvilOwl.Player
 		{
 			_controls = new MainControls();
 			
+			//Move
+			_controls.Player.Move.performed += Move;
+			_controls.Player.Move.canceled += StopMove;
 			//Spells
 			_controls.Player.RedSpell.performed += Red;
 			_controls.Player.GreenSpell.performed += Green;
@@ -115,10 +129,7 @@ namespace EvilOwl.Player
 		private void Fire(InputAction.CallbackContext context)
 		{
 			if(_spells.Count == 0) return;
-			
-			var leaderDestSetter = _spells[0].GetComponent<AIDestinationSetter>();
-			var leaderCollider = _spells[0].GetComponent<CircleCollider2D>();
-			
+
 			var enemy = GameObject.FindWithTag("Enemy"); // TODO: Implement ray cast to find enemy
 
 			if (enemy == null)
@@ -127,17 +138,31 @@ namespace EvilOwl.Player
 			}
 			else
 			{
-				foreach (var spell in _spells) 
-				{
-					spell.GetComponent<AIPath>().maxSpeed = 100;
-				}
-				leaderCollider.enabled = true;
-				leaderDestSetter.target = enemy.transform;
+				if(increaseSpeedWhenSeeking) SetSpellChainSpeed(seekingSpeed);
 				
-				//TODO: Stop VFX
+				ActivateSeekTarget(enemy);
+				
 			}
 			
+			StopSpellVFx();
 			_spells.Clear();
+		}
+
+		private void Move(InputAction.CallbackContext context)
+		{
+			if (!increaseSpeedWhenWalking) return;
+			
+			SetSpellChainSpeed(walkingSpeed);
+			_speedIncreased = true;
+
+		}		
+		private void StopMove(InputAction.CallbackContext context)
+		{
+			if (!_speedIncreased) return;
+			
+			SetSpellChainSpeed(defaultSpeed);
+			_speedIncreased = false;
+			//TODO: Find a more appropriate time to restore speed 
 		}
 
 		private void CreateSpell(SpellType type)
@@ -169,7 +194,7 @@ namespace EvilOwl.Player
 		private Spell InitialiseSpell(GameObject newSpell, SpellType type)
 		{
 			var newSpellScript = newSpell.GetComponent<Spell>();
-			newSpellScript.Initialise(spellsParent, _spells.Count, spellSpacing, type);
+			newSpellScript.Initialise(_spells.Count, spellSpacing, type, useJoints);
 			return newSpellScript;
 		}
 
@@ -186,7 +211,7 @@ namespace EvilOwl.Player
 		{
 			if (spawnAtCenterOfParent)
 			{
-				spellScript.PlaceSpellAtParent();
+				spellScript.gameObject.transform.position = gameObject.transform.position;
 			}
 			else
 			{
@@ -200,6 +225,29 @@ namespace EvilOwl.Player
 			
 			vfx.Play();
 			_vfxIsActive = true;
+		}
+
+		private  void StopSpellVFx()
+		{
+			vfx.Stop();
+			_vfxIsActive = false;
+		}
+
+		private void SetSpellChainSpeed(float speed)
+		{
+			foreach (var spell in _spells) 
+			{
+				spell.GetComponent<AIPath>().maxSpeed = speed;
+			}
+		}
+
+		private void ActivateSeekTarget(GameObject seekTarget)
+		{
+			var leaderDestSetter = _spells[0].GetComponent<AIDestinationSetter>();
+			var leaderCollider = _spells[0].GetComponent<CircleCollider2D>();
+			
+			leaderCollider.enabled = true;
+			leaderDestSetter.target = seekTarget.transform;
 		}
 	}
 }

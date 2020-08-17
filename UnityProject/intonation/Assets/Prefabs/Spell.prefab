@@ -169,6 +169,8 @@ GameObject:
   - component: {fileID: 112865294}
   - component: {fileID: 112865295}
   - component: {fileID: 5819266128302786764}
+  - component: {fileID: 8699761711344736561}
+  - component: {fileID: 5792180495095097106}
   m_Layer: 0
   m_Name: Spell
   m_TagString: Untagged
@@ -207,6 +209,8 @@ MonoBehaviour:
   effectColours: {fileID: 11400000, guid: a6ae82cf74834574ba8b4e6f921b595f, type: 2}
   pointLight: {fileID: 1262902385}
   aStarDestinationSetter: {fileID: 112865293}
+  joint: {fileID: 5792180495095097106}
+  type: 0
 --- !u!114 &112865293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,9 +250,9 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
+  maxAcceleration: 100
   rotationSpeed: 360
   slowdownDistance: 1.75
   pickNextWaypointDist: 1.57
@@ -301,3 +305,43 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!50 &8699761711344736561
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111776527398995091}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!232 &5792180495095097106
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111776527398995091}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 2
+  m_MaxDistanceOnly: 1
