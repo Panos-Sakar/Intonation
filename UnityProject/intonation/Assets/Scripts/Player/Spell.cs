@@ -27,6 +27,10 @@ namespace EvilOwl.Player
 		private GameObject _previousSpell;
 		private GameObject _nextSpell;
 
+		private bool _lerpLight;
+		private float _lerpTarget;
+		private float _lerpStart;
+		private float _lerpPercent;
 
 #pragma warning restore CS0649
 
@@ -37,6 +41,16 @@ namespace EvilOwl.Player
 		/*****************************
 		 *          Update           *
 		 *****************************/
+		private void FixedUpdate()
+		{
+			if (_lerpLight)
+			{
+				pointLight.intensity = Mathf.Lerp(_lerpStart, _lerpTarget, _lerpPercent);
+				_lerpPercent += 0.05f;
+				if (_lerpPercent > 1) _lerpLight = false;
+			}
+			
+		}
 
 		/*****************************
 		 *          Methods          *
@@ -47,7 +61,7 @@ namespace EvilOwl.Player
 			_spacing = spacing;
 			type = typeOfSpell;
 			_useJoint = useJoint;
-
+			_lerpStart = pointLight.intensity;
 			switch (type)
 			{
 				case SpellType.Red:
@@ -119,6 +133,12 @@ namespace EvilOwl.Player
 			
 			//TODO: Set next spell in chain to follow enemy?
 			
+		}
+
+		public void LerpLight(float target)
+		{
+			_lerpTarget = target;
+			_lerpLight = true;
 		}
 	}
 }

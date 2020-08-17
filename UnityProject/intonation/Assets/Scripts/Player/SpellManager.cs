@@ -139,7 +139,7 @@ namespace EvilOwl.Player
 			else
 			{
 				if(increaseSpeedWhenSeeking) SetSpellChainSpeed(seekingSpeed);
-				
+				SetSpellLight(3.5f);
 				ActivateSeekTarget(enemy);
 				
 			}
@@ -177,6 +177,7 @@ namespace EvilOwl.Player
 
 			ChainSpells(newSpell, newSpellScript);
 
+			SetSpellChainSpeed(defaultSpeed);
 			
 			newSpellScript.SetSpellTarget(targetAtPlayer);
 			
@@ -238,9 +239,18 @@ namespace EvilOwl.Player
 			foreach (var spell in _spells) 
 			{
 				spell.GetComponent<AIPath>().maxSpeed = speed;
+				
 			}
 		}
 
+		private void SetSpellLight(float strength)
+		{
+			foreach (var spell in _spells) 
+			{
+				spell.GetComponent<Spell>().LerpLight(strength);
+			}
+		}
+		
 		private void ActivateSeekTarget(GameObject seekTarget)
 		{
 			var leaderDestSetter = _spells[0].GetComponent<AIDestinationSetter>();
