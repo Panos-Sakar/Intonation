@@ -16,6 +16,7 @@ namespace EvilOwl.Player
 		[Header("General")]
 		[SerializeField] private int maxSpells;
 		[SerializeField] private bool useJoints;
+		[SerializeField] private bool managesActions;
 		
 		[Header("Positioning")]
 		[SerializeField] private bool spawnAtCenterOfParent;
@@ -76,6 +77,7 @@ namespace EvilOwl.Player
 		private void InitializeInput()
 		{
 			_controls = new MainControls();
+			if(!managesActions) return;
 			
 			//Move
 			_controls.Player.Move.performed += Move;
@@ -90,7 +92,7 @@ namespace EvilOwl.Player
 			_controls.Player.Fire.performed += Fire;
 		}
 		
-		private void Red(InputAction.CallbackContext context)
+		public void Red(InputAction.CallbackContext context)
 		{
 			if (_spells.Count >= maxSpells) return;
 			
@@ -99,7 +101,7 @@ namespace EvilOwl.Player
 			CreateSpell(SpellType.Red);
 		}
 		
-		private void Green(InputAction.CallbackContext context)
+		public void Green(InputAction.CallbackContext context)
 		{
 			if (_spells.Count >= maxSpells) return;
 			
@@ -108,7 +110,7 @@ namespace EvilOwl.Player
 			CreateSpell(SpellType.Green);
 		}
 		
-		private void Blue(InputAction.CallbackContext context)
+		public void Blue(InputAction.CallbackContext context)
 		{
 			if (_spells.Count >= maxSpells) return;
 			
@@ -117,7 +119,7 @@ namespace EvilOwl.Player
 			CreateSpell(SpellType.Blue);
 		}
 		
-		private void Yellow(InputAction.CallbackContext context)
+		public void Yellow(InputAction.CallbackContext context)
 		{
 			if (_spells.Count >= maxSpells) return;
 			
@@ -126,7 +128,7 @@ namespace EvilOwl.Player
 			CreateSpell(SpellType.Yellow);
 		}
 
-		private void Fire(InputAction.CallbackContext context)
+		public void Fire(InputAction.CallbackContext context)
 		{
 			if(_spells.Count == 0) return;
 
@@ -148,7 +150,7 @@ namespace EvilOwl.Player
 			_spells.Clear();
 		}
 
-		private void Move(InputAction.CallbackContext context)
+		public void Move(InputAction.CallbackContext context)
 		{
 			if (!increaseSpeedWhenWalking) return;
 			
@@ -156,7 +158,7 @@ namespace EvilOwl.Player
 			_speedIncreased = true;
 
 		}		
-		private void StopMove(InputAction.CallbackContext context)
+		public void StopMove(InputAction.CallbackContext context)
 		{
 			if (!_speedIncreased) return;
 			

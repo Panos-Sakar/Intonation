@@ -11,9 +11,9 @@ namespace EvilOwl.Player
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		public Spell spellObject;
 		public float damageMultiplier = 1;
 		
+		private Spell _spellObject;
 		private List<SpellType> _spellChain;
 		private float _spellChainDamage;
 		
@@ -21,10 +21,7 @@ namespace EvilOwl.Player
 		/*****************************
 		 *           Init            *
 		 *****************************/
-		private void Awake()
-		{
-			_spellChain = new List<SpellType>();
-		}
+		
 		/*****************************
 		 *          Update           *
 		 *****************************/
@@ -32,6 +29,12 @@ namespace EvilOwl.Player
 		/*****************************
 		 *          Methods          *
 		 *****************************/
+		public void Initialise(Spell spellObject)
+		{
+			_spellChain = new List<SpellType>();
+			_spellObject = spellObject;
+			_spellChainDamage = 0;
+		}
 		public void AddSpell(SpellType type)
 		{
 			_spellChain.Add(type);
@@ -46,12 +49,12 @@ namespace EvilOwl.Player
 			
 			if (otherObject.Deflected(_spellChain))
 			{
-				spellObject.SelfDestroy();
+				_spellObject.SelfDestroy();
 			}
 			else
 			{
 				otherObject.Damage(_spellChainDamage);
-				spellObject.SelfDestroy();
+				_spellObject.SelfDestroy();
 			}
 		}
 	}

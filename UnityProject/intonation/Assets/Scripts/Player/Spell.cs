@@ -111,7 +111,8 @@ namespace EvilOwl.Player
 		{
 			_isSpellLeader = true;
 			var spellLeader = gameObject.AddComponent(typeof(SpellLeader)) as SpellLeader;
-			if (spellLeader != null) spellLeader.spellObject = this;
+			if (spellLeader != null) spellLeader.Initialise(this);
+			
 		}
 
 		public void SetSpellTarget(GameObject target)
