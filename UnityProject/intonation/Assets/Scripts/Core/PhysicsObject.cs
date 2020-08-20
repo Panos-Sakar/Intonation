@@ -37,7 +37,7 @@ namespace EvilOwl.Core
 			_raycastHits = new RaycastHit2D[32];
 			_raycastHitsList = new List<RaycastHit2D>();
 			_contactFilter.useTriggers = true;
-			_contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer)); // or 
+			_contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("PhysicsObject"))); // or 
 			_contactFilter.useLayerMask = true;
 		}
 		/*****************************
@@ -101,5 +101,11 @@ namespace EvilOwl.Core
 			}
 			rb2D.position += move.normalized * distance;
 		}	
+		
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			if (!other.gameObject.CompareTag("KillZone")) return;
+			transform.position = new Vector3(0,0,0);
+		}
 	}
 }

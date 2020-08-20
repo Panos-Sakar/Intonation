@@ -45,7 +45,7 @@ namespace EvilOwl.Player
 		{
 			var otherObject = other.GetComponent<IDamageable>();
 
-			if (otherObject == null) return;
+			if (otherObject == null || !other.CompareTag("Enemy")) return;
 			
 			if (otherObject.Deflected(_spellChain))
 			{

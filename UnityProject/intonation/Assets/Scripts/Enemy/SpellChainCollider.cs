@@ -37,7 +37,7 @@ namespace EvilOwl.Enemy
 				print(othersSpellChain[index]);
 				if (othersSpellChain[index] != spellChain[index]) return false;
 			}
-
+			print("Ha deflect");
 			return true;
 		}
 
