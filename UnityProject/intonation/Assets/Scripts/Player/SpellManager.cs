@@ -191,6 +191,7 @@ namespace EvilOwl.Player
 			var newSpell = Instantiate(spellPrefab, spellsParent.transform);
 			_spells.Add(newSpell);
 			newSpell.name = $"Spell_No_{_spells.Count}";
+			newSpell.tag = gameObject.tag;
 			return newSpell;
 		}
 

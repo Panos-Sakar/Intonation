@@ -100,6 +100,11 @@ namespace EvilOwl.Player
 		public void SetNextSpell(GameObject nextSpell)
 		{
 			_nextSpell = nextSpell;
+			if (_isSpellLeader && _useJoint)
+			{
+				joint.connectedBody = _nextSpell.GetComponent<Rigidbody2D>();
+				joint.enabled = true;
+			}
 		}
 
 		public void SetPreviousSpell(GameObject previousSpell)
@@ -111,8 +116,7 @@ namespace EvilOwl.Player
 		{
 			_isSpellLeader = true;
 			var spellLeader = gameObject.AddComponent(typeof(SpellLeader)) as SpellLeader;
-			if (spellLeader != null) spellLeader.Initialise(this);
-			
+			if (spellLeader != null) spellLeader.Initialise(this, gameObject.tag);
 		}
 
 		public void SetSpellTarget(GameObject target)

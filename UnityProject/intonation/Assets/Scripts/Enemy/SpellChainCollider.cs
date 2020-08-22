@@ -19,7 +19,10 @@ namespace EvilOwl.Enemy
 		/*****************************
 		 *           Init            *
 		 *****************************/
-		
+		private void Awake()
+		{
+			spellChain = new List<SpellType>();
+		}
 		/*****************************
 		 *          Update           *
 		 *****************************/
@@ -45,6 +48,16 @@ namespace EvilOwl.Enemy
 		{
 			life -= damageAmount;
 			if(life <= 0) Destroy(gameObject);
+		}
+
+		public void AddSpell(SpellType spellType)
+		{
+			spellChain.Add(spellType);
+		}
+
+		public void ResetSpellChain()
+		{
+			spellChain.Clear();
 		}
 	}
 }

@@ -34,6 +34,7 @@ namespace EvilOwl.Core
 		 *****************************/
 		private void Start()
 		{
+			rb2D.bodyType = RigidbodyType2D.Kinematic;
 			_raycastHits = new RaycastHit2D[32];
 			_raycastHitsList = new List<RaycastHit2D>();
 			_contactFilter.useTriggers = true;
