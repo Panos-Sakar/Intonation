@@ -80,11 +80,8 @@ namespace EvilOwl.Player
 
 		public void CreateSpell(SpellType type)
 		{
-			if (_spells.Count >= maxSpells) {
-				spellChainMaxed = true;
-				return;
-			}
-			
+			if (_spells.Count >= maxSpells) return;
+
 			var newSpell = InstantiateSpell();
 
 			var newSpellScript = InitialiseSpell(newSpell, type);
@@ -98,6 +95,8 @@ namespace EvilOwl.Player
 			SetSpellChainSpeed(defaultSpeed);
 			
 			newSpellScript.SetSpellTarget(targetAtPlayer);
+			
+			if(_spells.Count == maxSpells) spellChainMaxed = true;
 		}
 
 		private GameObject InstantiateSpell()

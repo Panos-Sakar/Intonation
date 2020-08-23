@@ -157,7 +157,7 @@ namespace EvilOwl.Player.Input_System
                     ""id"": ""d10634e5-16d6-4b4a-a928-622a09c4785b"",
                     ""path"": ""<Gamepad>/leftStick/x"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.1,max=1)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,

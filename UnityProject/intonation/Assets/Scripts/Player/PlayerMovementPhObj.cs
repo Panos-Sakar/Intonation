@@ -32,7 +32,7 @@ namespace EvilOwl.Player
 		 *****************************/
 		private void FixedUpdate()
 		{
-			if(updateAnimator && physicsObject.velocity.y == 0) animator.JumpState(false);
+			if(updateAnimator && Math.Abs(physicsObject.velocity.y) < 0.01) animator.JumpState(false);
 		}
 		/*****************************
 		 *          Update           *

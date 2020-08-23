@@ -16,7 +16,8 @@ namespace EvilOwl.Player
 		
 		private List<Vfx> _vfx;
 		public ParticleSystem ps;
-		
+		public Gradient defaultGradient;
+		private List<Color> _colors;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -27,7 +28,7 @@ namespace EvilOwl.Player
 			{
 				new Vfx()
 			};
-
+			_colors = new List<Color>();
 			_vfx[0].Name = VfxName.SpellOrb;
 			_vfx[0].Enabled = false;
 			_vfx[0].VfxType = VfxTypes.ParticleSystem;
@@ -49,13 +50,38 @@ namespace EvilOwl.Player
 			}
 		}
 
+		public void AddGradientColor(Color newColor)
+		{
+			_colors.Add(newColor);
+			
+			var main = ps.main;
+			var newGradient = new Gradient();
+
+			var colorKey = new GradientColorKey[_colors.Count];
+			for (var i = 0; i < _colors.Count; i++)
+			{
+				colorKey[i].color = _colors[i];
+				colorKey[i].time = (float) i/_colors.Count;
+			}
+			
+			var alphaKey = new GradientAlphaKey[1];
+			alphaKey[0].alpha = 0.8f;
+			alphaKey[0].time = 0.0f;
+			
+			newGradient.SetKeys(colorKey, alphaKey);
+			
+			main.startColor = new ParticleSystem.MinMaxGradient(newGradient);
+		}
 		public void StopVfx(VfxName vfxName)
 		{
 			foreach (var vfx in _vfx.Where(vfx => vfx.Name == vfxName))
 			{
 				vfx.Enabled = false;
 				vfx.StopVfx();
+				var main = ps.main;
+				main.startColor = new ParticleSystem.MinMaxGradient(defaultGradient);
 				ps.Stop();
+				_colors.Clear();
 			}
 		}
 	}

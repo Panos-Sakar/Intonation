@@ -86,8 +86,7 @@ namespace EvilOwl.Player.Input_System
 			_user.InputUser = InputUser.PerformPairingWithDevice(device: _user.Device);
 			_user.InputUser.AssociateActionsWithUser(_user.Controls);
 			_user.Actions = _user.Controls.Main;
-			InputUser.PerformPairingWithDevice(device: InputSystem.devices[2],_user.InputUser);
-			
+
 			InitialiseSpells();
 
 			switch (triggerInput)
@@ -142,9 +141,13 @@ namespace EvilOwl.Player.Input_System
 			}
 			 
 			if(triggerSpriteColor) soundwaveSprite.color = spriteColor;
-			
-			if(triggerVfx) vfxManager.StartVfx(VfxName.SpellOrb);
-			
+
+			if (triggerVfx)
+			{
+				vfxManager.AddGradientColor(spriteColor);
+				vfxManager.StartVfx(VfxName.SpellOrb);
+			}
+
 			if(triggerAnimator) animatorEvents.StartSoundwaveAnimation();
 		}
 

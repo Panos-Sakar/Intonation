@@ -4319,6 +4319,82 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key0.r
+      value: 0.5132557
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key0.g
+      value: 0.105909556
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key0.b
+      value: 0.6415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key0.a
+      value: 0.8627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key1.r
+      value: 0.6070032
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key1.g
+      value: 0.6320754
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key1.b
+      value: 0.27727836
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key1.a
+      value: 0.8627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key2.r
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key2.g
+      value: 0.39215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key2.b
+      value: 0.4669554
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.ctime1
+      value: 21843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.ctime2
+      value: 43253
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key3.r
+      value: 0.16981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key3.g
+      value: 0.4666783
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.key3.b
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264162685609490102, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
+      propertyPath: grad.atime1
+      value: 65535
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d9689024cce2174d9222f230037f4fa, type: 3}
 --- !u!1 &1039574948
