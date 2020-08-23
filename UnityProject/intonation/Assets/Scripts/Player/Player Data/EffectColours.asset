@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3477addda86429f4488aff0678ad0de4, type: 3}
   m_Name: EffectColours
   m_EditorClassIdentifier: 
-  redEffectColour: {r: 0.5849056, g: 0.08001069, b: 0.08001069, a: 1}
-  greenEffectColour: {r: 0.054111768, g: 0.6037736, b: 0.10639099, a: 1}
-  blueEffectColour: {r: 0.007742955, g: 0.25627583, b: 0.5471698, a: 1}
-  yellowEffectColour: {r: 0.7075472, g: 0.7029245, b: 0.050062295, a: 1}
+  red: {r: 0.6792453, g: 0.08009967, b: 0.08009967, a: 1}
+  green: {r: 0.05475818, g: 0.6132076, b: 0.03760237, a: 1}
+  blue: {r: 0.037824854, g: 0.20225152, b: 0.4716981, a: 1}
+  yellow: {r: 0.735849, g: 0.71118045, b: 0.05900677, a: 1}

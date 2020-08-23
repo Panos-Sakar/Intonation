@@ -17,7 +17,7 @@ namespace EvilOwl.Player.Input_System
     ""name"": ""Main Controls"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""Main"",
             ""id"": ""7cf7de7e-fea3-4cf6-836f-61f8e2d8a1d8"",
             ""actions"": [
                 {
@@ -321,7 +321,7 @@ namespace EvilOwl.Player.Input_System
                     ""name"": """",
                     ""id"": ""82169661-c03c-4ab9-8543-fbb255b93ade"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(pressPoint=0.2)"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""BlueSpell"",
@@ -343,7 +343,7 @@ namespace EvilOwl.Player.Input_System
                     ""name"": """",
                     ""id"": ""c7bf3a85-b186-4d3d-84f8-512005b85f31"",
                     ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(pressPoint=0.2)"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""YellowSpell"",
@@ -383,16 +383,16 @@ namespace EvilOwl.Player.Input_System
         }
     ]
 }");
-            // Player
-            m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-            m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-            m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-            m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-            m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
-            m_Player_RedSpell = m_Player.FindAction("RedSpell", throwIfNotFound: true);
-            m_Player_GreenSpell = m_Player.FindAction("GreenSpell", throwIfNotFound: true);
-            m_Player_BlueSpell = m_Player.FindAction("BlueSpell", throwIfNotFound: true);
-            m_Player_YellowSpell = m_Player.FindAction("YellowSpell", throwIfNotFound: true);
+            // Main
+            m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
+            m_Main_Move = m_Main.FindAction("Move", throwIfNotFound: true);
+            m_Main_Jump = m_Main.FindAction("Jump", throwIfNotFound: true);
+            m_Main_Fire = m_Main.FindAction("Fire", throwIfNotFound: true);
+            m_Main_Sprint = m_Main.FindAction("Sprint", throwIfNotFound: true);
+            m_Main_RedSpell = m_Main.FindAction("RedSpell", throwIfNotFound: true);
+            m_Main_GreenSpell = m_Main.FindAction("GreenSpell", throwIfNotFound: true);
+            m_Main_BlueSpell = m_Main.FindAction("BlueSpell", throwIfNotFound: true);
+            m_Main_YellowSpell = m_Main.FindAction("YellowSpell", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -439,64 +439,64 @@ namespace EvilOwl.Player.Input_System
             asset.Disable();
         }
 
-        // Player
-        private readonly InputActionMap m_Player;
-        private IPlayerActions m_PlayerActionsCallbackInterface;
-        private readonly InputAction m_Player_Move;
-        private readonly InputAction m_Player_Jump;
-        private readonly InputAction m_Player_Fire;
-        private readonly InputAction m_Player_Sprint;
-        private readonly InputAction m_Player_RedSpell;
-        private readonly InputAction m_Player_GreenSpell;
-        private readonly InputAction m_Player_BlueSpell;
-        private readonly InputAction m_Player_YellowSpell;
-        public struct PlayerActions
+        // Main
+        private readonly InputActionMap m_Main;
+        private IMainActions m_MainActionsCallbackInterface;
+        private readonly InputAction m_Main_Move;
+        private readonly InputAction m_Main_Jump;
+        private readonly InputAction m_Main_Fire;
+        private readonly InputAction m_Main_Sprint;
+        private readonly InputAction m_Main_RedSpell;
+        private readonly InputAction m_Main_GreenSpell;
+        private readonly InputAction m_Main_BlueSpell;
+        private readonly InputAction m_Main_YellowSpell;
+        public struct MainActions
         {
             private @MainControls m_Wrapper;
-            public PlayerActions(@MainControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Move => m_Wrapper.m_Player_Move;
-            public InputAction @Jump => m_Wrapper.m_Player_Jump;
-            public InputAction @Fire => m_Wrapper.m_Player_Fire;
-            public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
-            public InputAction @RedSpell => m_Wrapper.m_Player_RedSpell;
-            public InputAction @GreenSpell => m_Wrapper.m_Player_GreenSpell;
-            public InputAction @BlueSpell => m_Wrapper.m_Player_BlueSpell;
-            public InputAction @YellowSpell => m_Wrapper.m_Player_YellowSpell;
-            public InputActionMap Get() { return m_Wrapper.m_Player; }
+            public MainActions(@MainControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Move => m_Wrapper.m_Main_Move;
+            public InputAction @Jump => m_Wrapper.m_Main_Jump;
+            public InputAction @Fire => m_Wrapper.m_Main_Fire;
+            public InputAction @Sprint => m_Wrapper.m_Main_Sprint;
+            public InputAction @RedSpell => m_Wrapper.m_Main_RedSpell;
+            public InputAction @GreenSpell => m_Wrapper.m_Main_GreenSpell;
+            public InputAction @BlueSpell => m_Wrapper.m_Main_BlueSpell;
+            public InputAction @YellowSpell => m_Wrapper.m_Main_YellowSpell;
+            public InputActionMap Get() { return m_Wrapper.m_Main; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-            public void SetCallbacks(IPlayerActions instance)
+            public static implicit operator InputActionMap(MainActions set) { return set.Get(); }
+            public void SetCallbacks(IMainActions instance)
             {
-                if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+                if (m_Wrapper.m_MainActionsCallbackInterface != null)
                 {
-                    @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                    @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                    @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                    @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                    @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                    @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
-                    @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
-                    @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
-                    @RedSpell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRedSpell;
-                    @RedSpell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRedSpell;
-                    @RedSpell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRedSpell;
-                    @GreenSpell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGreenSpell;
-                    @GreenSpell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGreenSpell;
-                    @GreenSpell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGreenSpell;
-                    @BlueSpell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlueSpell;
-                    @BlueSpell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlueSpell;
-                    @BlueSpell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlueSpell;
-                    @YellowSpell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnYellowSpell;
-                    @YellowSpell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnYellowSpell;
-                    @YellowSpell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnYellowSpell;
+                    @Move.started -= m_Wrapper.m_MainActionsCallbackInterface.OnMove;
+                    @Move.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnMove;
+                    @Move.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnMove;
+                    @Jump.started -= m_Wrapper.m_MainActionsCallbackInterface.OnJump;
+                    @Jump.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnJump;
+                    @Jump.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnJump;
+                    @Fire.started -= m_Wrapper.m_MainActionsCallbackInterface.OnFire;
+                    @Fire.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnFire;
+                    @Fire.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnFire;
+                    @Sprint.started -= m_Wrapper.m_MainActionsCallbackInterface.OnSprint;
+                    @Sprint.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnSprint;
+                    @Sprint.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnSprint;
+                    @RedSpell.started -= m_Wrapper.m_MainActionsCallbackInterface.OnRedSpell;
+                    @RedSpell.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnRedSpell;
+                    @RedSpell.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnRedSpell;
+                    @GreenSpell.started -= m_Wrapper.m_MainActionsCallbackInterface.OnGreenSpell;
+                    @GreenSpell.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnGreenSpell;
+                    @GreenSpell.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnGreenSpell;
+                    @BlueSpell.started -= m_Wrapper.m_MainActionsCallbackInterface.OnBlueSpell;
+                    @BlueSpell.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnBlueSpell;
+                    @BlueSpell.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnBlueSpell;
+                    @YellowSpell.started -= m_Wrapper.m_MainActionsCallbackInterface.OnYellowSpell;
+                    @YellowSpell.performed -= m_Wrapper.m_MainActionsCallbackInterface.OnYellowSpell;
+                    @YellowSpell.canceled -= m_Wrapper.m_MainActionsCallbackInterface.OnYellowSpell;
                 }
-                m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+                m_Wrapper.m_MainActionsCallbackInterface = instance;
                 if (instance != null)
                 {
                     @Move.started += instance.OnMove;
@@ -526,7 +526,7 @@ namespace EvilOwl.Player.Input_System
                 }
             }
         }
-        public PlayerActions @Player => new PlayerActions(this);
+        public MainActions @Main => new MainActions(this);
         private int m_KeyboardAndMouseSchemeIndex = -1;
         public InputControlScheme KeyboardAndMouseScheme
         {
@@ -545,7 +545,7 @@ namespace EvilOwl.Player.Input_System
                 return asset.controlSchemes[m_GamepadSchemeIndex];
             }
         }
-        public interface IPlayerActions
+        public interface IMainActions
         {
             void OnMove(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);

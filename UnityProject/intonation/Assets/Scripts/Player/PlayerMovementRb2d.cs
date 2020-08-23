@@ -1,11 +1,11 @@
 ﻿using System;
+using MyBox;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using EvilOwl.Player.Input_System;
 
 namespace EvilOwl.Player
 {
-	public class PlayerMovement : MonoBehaviour
+	public class PlayerMovementRb2d : MonoBehaviour
 	{
 #pragma warning disable CS0649
 		/*****************************
@@ -20,37 +20,23 @@ namespace EvilOwl.Player
 		[SerializeField] private Rigidbody2D myRigidbody;
 		[SerializeField] private GameObject characterContainer;
 		
-		public Animator myAnimator;
-		private MainControls _controls;
+		[SerializeField] private bool updateAnimator;
+		[ConditionalField(nameof(updateAnimator))] 
+		[SerializeField] private AnimatorEvents animator;
+		
 		private int _moveDirection;
 		private float _runMultiplier = 1;
 		
 		private bool _grounded;
 		
 		//Animation Ids
-		private static readonly int MoveSpeed = Animator.StringToHash("moveSpeed");
-		private static readonly int IsJumping = Animator.StringToHash("isJumping");
-		private static readonly int IsRunning = Animator.StringToHash("isRunning");
+
 
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
 		 *****************************/
-		private void Awake()
-		{
-			InitializeInput();
-		}
 
-		private void OnEnable()
-		{
-			_controls.Enable();
-		}
-
-		private void OnDisable()
-		{
-			_controls.Disable();
-		}
-		
 		/*****************************
 		 *          Update           *
 		 *****************************/
@@ -66,22 +52,7 @@ namespace EvilOwl.Player
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-		private void InitializeInput()
-		{
-			_controls = new MainControls();
-			
-			//Move
-			_controls.Player.Move.performed += MovePlayer;
-			_controls.Player.Move.canceled += StopPlayer;
-			
-			//Jump
-			_controls.Player.Jump.performed += Jump;
-
-			//Sprint
-			_controls.Player.Sprint.performed += Run;
-			_controls.Player.Sprint.canceled += StopRun;
-		}
-		private void MovePlayer(InputAction.CallbackContext context)
+		public void MovePlayer(InputAction.CallbackContext context)
 		{
 			var value = context.ReadValue<float>();
 			
@@ -92,7 +63,7 @@ namespace EvilOwl.Player
 				var currentScale = characterContainer.transform.localScale;
 				characterContainer.transform.localScale = new Vector3(Math.Abs(currentScale.x),currentScale.y,currentScale.z);
 				
-				myAnimator.SetFloat (MoveSpeed , Math.Abs(transform.position.x));
+				if(updateAnimator) animator.MoveState(Math.Abs(transform.position.x));
 			}
 			else if(value < 0)
 			{
@@ -101,44 +72,44 @@ namespace EvilOwl.Player
 				var currentScale = transform.localScale;
 				characterContainer.transform.localScale = new Vector3(-1 * Math.Abs(currentScale.x),currentScale.y,currentScale.z);
 				
-				myAnimator.SetFloat (MoveSpeed , Math.Abs(transform.position.x));
+				if(updateAnimator) animator.MoveState(Math.Abs(transform.position.x));
 			}
 		}
 
-		private void StopPlayer(InputAction.CallbackContext context)
+		public void StopPlayer()
 		{
 			_moveDirection = 0;
-			myAnimator.SetFloat (MoveSpeed , 0);
+			if(updateAnimator) animator.MoveState(0);
 			
 		}
 
-		private void Jump(InputAction.CallbackContext context)
+		public void Jump()
 		{
 			if (!_grounded) return;
 			
 			myRigidbody.AddForce(Vector2.up * (jumpForce * 10));
-			myAnimator.SetBool (IsJumping , true);
+			if(updateAnimator) animator.JumpState(true);
 			
 			_grounded = false;
 
 		}
 
-		private void Run(InputAction.CallbackContext context)
+		public void Run()
 		{
 			_runMultiplier = runMultiplier;
-			myAnimator.SetBool (IsRunning , true);
+			if(updateAnimator) animator.SprintState(true);
 		}
 
-		private void StopRun(InputAction.CallbackContext context)
+		public void StopRun()
 		{
 			_runMultiplier = 1;
-			myAnimator.SetBool (IsRunning , false);
+			if(updateAnimator) animator.SprintState(false);
 		}
 
 		private void OnCollisionEnter2D()
 		{
 			_grounded = true;
-			myAnimator.SetBool (IsJumping , false);
+			if(updateAnimator) animator.JumpState(false);
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)

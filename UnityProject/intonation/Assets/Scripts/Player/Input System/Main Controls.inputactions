@@ -2,7 +2,7 @@
     "name": "Main Controls",
     "maps": [
         {
-            "name": "Player",
+            "name": "Main",
             "id": "7cf7de7e-fea3-4cf6-836f-61f8e2d8a1d8",
             "actions": [
                 {
@@ -306,7 +306,7 @@
                     "name": "",
                     "id": "82169661-c03c-4ab9-8543-fbb255b93ade",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.2)",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "BlueSpell",
@@ -328,7 +328,7 @@
                     "name": "",
                     "id": "c7bf3a85-b186-4d3d-84f8-512005b85f31",
                     "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.2)",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "YellowSpell",

@@ -80,23 +80,23 @@ namespace EvilOwl.Player
 			if(!managesActions) return;
 			
 			//Move
-			_controls.Player.Move.performed += Move;
-			_controls.Player.Move.canceled += StopMove;
+			_controls.Main.Move.performed += Move;
+			_controls.Main.Move.canceled += StopMove;
 			//Spells
-			_controls.Player.RedSpell.performed += Red;
-			_controls.Player.GreenSpell.performed += Green;
-			_controls.Player.BlueSpell.performed += Blue;
-			_controls.Player.YellowSpell.performed += Yellow;
+			_controls.Main.RedSpell.performed += Red;
+			_controls.Main.GreenSpell.performed += Green;
+			_controls.Main.BlueSpell.performed += Blue;
+			_controls.Main.YellowSpell.performed += Yellow;
 			
 			//Fire
-			_controls.Player.Fire.performed += Fire;
+			_controls.Main.Fire.performed += Fire;
 		}
 		
 		public void Red(InputAction.CallbackContext context)
 		{
 			if (_spells.Count >= maxSpells) return;
 			
-			soundwaveSprite.color = spellColors.redEffectColour;
+			soundwaveSprite.color = spellColors.red;
 			playerAnimator.SetTrigger(StartSoundwave);
 			CreateSpell(SpellType.Red);
 		}
@@ -105,7 +105,7 @@ namespace EvilOwl.Player
 		{
 			if (_spells.Count >= maxSpells) return;
 			
-			soundwaveSprite.color = spellColors.greenEffectColour;
+			soundwaveSprite.color = spellColors.green;
 			playerAnimator.SetTrigger(StartSoundwave);
 			CreateSpell(SpellType.Green);
 		}
@@ -114,7 +114,7 @@ namespace EvilOwl.Player
 		{
 			if (_spells.Count >= maxSpells) return;
 			
-			soundwaveSprite.color = spellColors.blueEffectColour;
+			soundwaveSprite.color = spellColors.blue;
 			playerAnimator.SetTrigger(StartSoundwave);
 			CreateSpell(SpellType.Blue);
 		}
@@ -123,7 +123,7 @@ namespace EvilOwl.Player
 		{
 			if (_spells.Count >= maxSpells) return;
 			
-			soundwaveSprite.color = spellColors.yellowEffectColour;
+			soundwaveSprite.color = spellColors.yellow;
 			playerAnimator.SetTrigger(StartSoundwave);
 			CreateSpell(SpellType.Yellow);
 		}

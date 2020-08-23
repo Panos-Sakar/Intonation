@@ -13,10 +13,14 @@ namespace EvilOwl.Player
 		/*****************************
 		 *         Variables         *
 		 *****************************/
+		[Separator]
+		[Space(-15)]
 		[Header("General")]
 		[SerializeField] private int maxSpells;
 		[SerializeField] private bool useJoints;
 
+		[Separator]
+		[Space(-15)]
 		[Header("Positioning")]
 		[SerializeField] private bool spawnAtCenterOfParent;
 		[ConditionalField(nameof(spawnAtCenterOfParent),true)] 
@@ -26,21 +30,32 @@ namespace EvilOwl.Player
 		[ConditionalField(nameof(spawnAtCenterOfParent),true)] 
 		[SerializeField] private float spellCircleOffset;
 		
+		[Separator]
+		[Space(-15)]
 		[Header("Targeting")] 
 		[SerializeField] private GameObject targetAtPlayer;
-		[SerializeField] private float defaultSpeed;
+		
+		[Separator]
+		[Space(-15)]
+		[Header("Speed")] 
+		[SerializeField] private float defaultSpeed = 15;
+		[Space(15)]
 		[SerializeField] private bool increaseSpeedWhenSeeking;
 		[ConditionalField(nameof(increaseSpeedWhenSeeking))]
-		[SerializeField] private float seekingSpeed;
+		[SerializeField] private float seekingSpeed = 120;
+		[Space(15)]
 		[SerializeField] private bool increaseSpeedWhenWalking;
 		[ConditionalField(nameof(increaseSpeedWhenWalking))]
-		[SerializeField] private float walkingSpeed;
+		[SerializeField] private float walkingSpeed = 70;
 
+		[Separator]
+		[Space(-15)]
 		[Header("References")] 
 		[SerializeField] private GameObject spellsParent;
 		[SerializeField] private GameObject spellPrefab;
 
 		private List<GameObject> _spells;
+		[HideInInspector]
 		public bool spellChainMaxed;
 		
 		private bool _speedIncreased;

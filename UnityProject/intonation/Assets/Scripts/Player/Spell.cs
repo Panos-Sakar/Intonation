@@ -65,20 +65,20 @@ namespace EvilOwl.Player
 			switch (type)
 			{
 				case SpellType.Red:
-					spellSprite.color = effectColours.redEffectColour;
-					pointLight.color = effectColours.redEffectColour;
+					spellSprite.color = effectColours.red;
+					pointLight.color = effectColours.red;
 					break;
 				case SpellType.Green:
-					spellSprite.color = effectColours.greenEffectColour;
-					pointLight.color = effectColours.greenEffectColour;
+					spellSprite.color = effectColours.green;
+					pointLight.color = effectColours.green;
 					break;
 				case SpellType.Blue:
-					spellSprite.color = effectColours.blueEffectColour;
-					pointLight.color = effectColours.blueEffectColour;
+					spellSprite.color = effectColours.blue;
+					pointLight.color = effectColours.blue;
 					break;
 				case SpellType.Yellow:
-					spellSprite.color = effectColours.yellowEffectColour;
-					pointLight.color = effectColours.yellowEffectColour;
+					spellSprite.color = effectColours.yellow;
+					pointLight.color = effectColours.yellow;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
