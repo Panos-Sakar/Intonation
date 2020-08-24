@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 8324240158603011240}
   - component: {fileID: 1076525062151278419}
   - component: {fileID: 4448710290761410851}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerPrefab
   m_TagString: Player
   m_Icon: {fileID: 2800000, guid: c22340e383b54c44196cb7765328e79d, type: 3}
@@ -900,7 +900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4cc386cedcd944a978288157da870d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deviceId: 0
   triggerAnimator: 1
   animatorEvents: {fileID: 7475411396875721117}
   triggerSpriteColor: 1
@@ -989,6 +988,7 @@ MonoBehaviour:
   rb2D: {fileID: 4437998217291305749}
   gravityModifier: 5
   minGroundNormalY: 0.65
+  collisionLayer: 9
   isGrounded: 0
   isRunning: 0
   velocity: {x: 0, y: 0}

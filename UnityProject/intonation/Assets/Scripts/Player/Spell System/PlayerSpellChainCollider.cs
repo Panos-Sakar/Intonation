@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using EvilOwl.Core;
 using EvilOwl.Core.Interfaces;
+using EvilOwl.Player.Player_Data;
 using UnityEngine;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Spell_System
 {
     public class PlayerSpellChainCollider : MonoBehaviour , IDamageable
     {

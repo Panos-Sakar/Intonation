@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Animation
 {
 	public class AnimatorEvents : MonoBehaviour
 	{

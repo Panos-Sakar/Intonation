@@ -5,7 +5,7 @@ using Pathfinding;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Spell_System
 {
 	public class SpellManagerV2 : MonoBehaviour
 	{

@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Player_Data
 {
-	public class AutoRotate : MonoBehaviour
+	public class PlayerStats : MonoBehaviour
 	{
 #pragma warning disable CS0649
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		
-		[SerializeField] private float rotateSpeed;
-
+		public float life;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -19,12 +17,10 @@ namespace EvilOwl.Player
 		/*****************************
 		 *          Update           *
 		 *****************************/
-		private void Update()
-		{
-			transform.Rotate(0,0,rotateSpeed*Time.deltaTime);
-		}
+
 		/*****************************
 		 *          Methods          *
 		 *****************************/
+
 	}
 }

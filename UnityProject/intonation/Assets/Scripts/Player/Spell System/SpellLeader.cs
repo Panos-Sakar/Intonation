@@ -3,7 +3,7 @@ using EvilOwl.Core;
 using EvilOwl.Core.Interfaces;
 using UnityEngine;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Spell_System
 {
 	public class SpellLeader : MonoBehaviour
 	{

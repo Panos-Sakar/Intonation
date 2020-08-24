@@ -17,9 +17,9 @@ TagManager:
   - 
   - Obstacle
   - PhysicsObject
-  - 
-  - 
-  - 
+  - Enemy
+  - Projectiles
+  - Player
   - 
   - 
   - 

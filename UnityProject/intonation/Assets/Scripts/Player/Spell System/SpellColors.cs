@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Spell_System
 {
 	[CreateAssetMenu(fileName = "EffectColours", menuName ="Game Data/EffectColours")]
 	public class SpellColors : ScriptableObject

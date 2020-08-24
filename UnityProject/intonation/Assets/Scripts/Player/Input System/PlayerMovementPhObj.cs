@@ -1,10 +1,11 @@
 ﻿using System;
 using EvilOwl.Core;
+using EvilOwl.Player.Animation;
 using MyBox;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Input_System
 {
 	public class PlayerMovementPhObj : MonoBehaviour
 	{

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MyBox;
 using UnityEngine;
 
 namespace EvilOwl.Core
@@ -15,6 +16,7 @@ namespace EvilOwl.Core
 		[Header("Properties")]
 		[SerializeField] private float gravityModifier = 1f;
 		[SerializeField] private float minGroundNormalY = 0.65f;
+		[SerializeField][Layer] private int collisionLayer ;
 
 		private ContactFilter2D _contactFilter;
 		private const float MinMoveDistance = 0.001f;
@@ -38,7 +40,7 @@ namespace EvilOwl.Core
 			_raycastHits = new RaycastHit2D[32];
 			_raycastHitsList = new List<RaycastHit2D>();
 			_contactFilter.useTriggers = true;
-			_contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("PhysicsObject"))); // or 
+			_contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(collisionLayer)); // or 
 			_contactFilter.useLayerMask = true;
 		}
 		/*****************************

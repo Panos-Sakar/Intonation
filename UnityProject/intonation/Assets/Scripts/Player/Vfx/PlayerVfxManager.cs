@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Vfx
 {
 	public class PlayerVfxManager : MonoBehaviour
 	{
