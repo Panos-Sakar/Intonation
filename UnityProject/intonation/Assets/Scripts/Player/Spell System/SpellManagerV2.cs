@@ -112,7 +112,8 @@ namespace EvilOwl.Player.Spell_System
 		private Spell InitialiseSpell(GameObject newSpell, SpellType type)
 		{
 			var newSpellScript = newSpell.GetComponent<Spell>();
-			newSpellScript.Initialise(_spells.Count, spellSpacing, type, useJoints);
+			var ignoreId = gameObject.transform.parent.GetInstanceID();
+			newSpellScript.Initialise(_spells.Count, spellSpacing, type, useJoints, ignoreId);
 			return newSpellScript;
 		}
 

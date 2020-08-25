@@ -63,6 +63,7 @@ namespace EvilOwl.Player.Input_System
 
 		[HideInInspector] public User user;
 		private MainControls.MainActions _actions;
+		private int _playerId;
 
 #pragma warning restore CS0649
 		/*****************************

@@ -16,7 +16,7 @@ namespace EvilOwl.Player.Spell_System
 		private Spell _spellObject;
 		private List<SpellType> _spellChain;
 		private float _spellChainDamage;
-		private string _ignoreTag;
+		private int _ignoreInstanceId;
 		
 #pragma warning restore CS0649
 		/*****************************
@@ -30,12 +30,12 @@ namespace EvilOwl.Player.Spell_System
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-		public void Initialise(Spell spellObject, string ignoreTag)
+		public void Initialise(Spell spellObject, int ignoreInstanceId)
 		{
 			_spellChain = new List<SpellType>();
 			_spellObject = spellObject;
 			_spellChainDamage = 0;
-			_ignoreTag = ignoreTag;
+			_ignoreInstanceId = ignoreInstanceId;
 		}
 		public void AddSpell(SpellType type)
 		{
@@ -46,9 +46,10 @@ namespace EvilOwl.Player.Spell_System
 		private void OnTriggerEnter2D(Collider2D other)
 		{
 			var otherObject = other.GetComponent<IDamageable>();
-			
-			if (otherObject == null || other.CompareTag(_ignoreTag)) return;
-			
+			if (otherObject == null || other.gameObject.transform.GetInstanceID() == _ignoreInstanceId)
+			{
+				return;
+			}
 			if (otherObject.Deflected(_spellChain))
 			{
 				_spellObject.SelfDestroy();

@@ -31,6 +31,7 @@ namespace EvilOwl.Player.Spell_System
 		private float _lerpTarget;
 		private float _lerpStart;
 		private float _lerpPercent;
+		private int _ignoreInstanceId;
 
 #pragma warning restore CS0649
 
@@ -55,13 +56,14 @@ namespace EvilOwl.Player.Spell_System
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-		public void Initialise(int position, float spacing, SpellType typeOfSpell, bool useJoint)
+		public void Initialise(int position, float spacing, SpellType typeOfSpell, bool useJoint, int ignoreInstanceId)
 		{
 			_position = position;
 			_spacing = spacing;
 			type = typeOfSpell;
 			_useJoint = useJoint;
 			_lerpStart = pointLight.intensity;
+			_ignoreInstanceId = ignoreInstanceId;
 			switch (type)
 			{
 				case SpellType.Red:
@@ -116,7 +118,7 @@ namespace EvilOwl.Player.Spell_System
 		{
 			_isSpellLeader = true;
 			var spellLeader = gameObject.AddComponent(typeof(SpellLeader)) as SpellLeader;
-			if (spellLeader != null) spellLeader.Initialise(this, gameObject.tag);
+			if (spellLeader != null) spellLeader.Initialise(this, _ignoreInstanceId);
 		}
 
 		public void SetSpellTarget(GameObject target)
