@@ -62,6 +62,7 @@ namespace EvilOwl.Player.Input_System
 
 
 		[HideInInspector] public User user;
+		private MainControls.MainActions _actions;
 
 #pragma warning restore CS0649
 		/*****************************
@@ -71,6 +72,7 @@ namespace EvilOwl.Player.Input_System
 		public void InitializeInput(InputDevice device)
 		{
 			user = new User(device);
+			_actions = user.Controls.Main;
 			
 			InitialiseSpells();
 
@@ -94,16 +96,16 @@ namespace EvilOwl.Player.Input_System
 		{
 			//Spells
 			
-			user.Actions.RedSpell.performed += ctx=> StartSpellSeq(SpellType.Red, spellColors.red);
+			_actions.RedSpell.performed += ctx=> StartSpellSeq(SpellType.Red, spellColors.red);
 
-			user.Actions.GreenSpell.performed += ctx=> StartSpellSeq(SpellType.Green, spellColors.green);
+			_actions.GreenSpell.performed += ctx=> StartSpellSeq(SpellType.Green, spellColors.green);
 			
-			user.Actions.BlueSpell.performed += ctx => StartSpellSeq(SpellType.Blue, spellColors.blue);
+			_actions.BlueSpell.performed += ctx => StartSpellSeq(SpellType.Blue, spellColors.blue);
 			
-			user.Actions.YellowSpell.performed += ctx => StartSpellSeq(SpellType.Yellow, spellColors.yellow);
+			_actions.YellowSpell.performed += ctx => StartSpellSeq(SpellType.Yellow, spellColors.yellow);
 			
 			//Fire 
-			user.Actions.Fire.performed += (context) =>
+			_actions.Fire.performed += (context) =>
 			{
 				if (triggerSpells) spellManager.Fire();
 				if(triggerSpells && !spellManager.spellChainMaxed) chainCollider.ResetSpellChain();
@@ -111,8 +113,8 @@ namespace EvilOwl.Player.Input_System
 			};
 			
 			//Move
-			user.Actions.Move.performed += spellManager.Move;
-			user.Actions.Move.canceled += spellManager.StopMove;
+			_actions.Move.performed += spellManager.Move;
+			_actions.Move.canceled += spellManager.StopMove;
 
 		}
 
@@ -143,15 +145,15 @@ namespace EvilOwl.Player.Input_System
 			playerMovementRb2d.enabled = true;
 			
 			//Move
-			user.Actions.Move.performed += ctx => playerMovementRb2d.MovePlayer(ctx);
-			user.Actions.Move.canceled += ctx => playerMovementRb2d.StopPlayer();
+			_actions.Move.performed += ctx => playerMovementRb2d.MovePlayer(ctx);
+			_actions.Move.canceled += ctx => playerMovementRb2d.StopPlayer();
 			
 			//Sprint
-			user.Actions.Sprint.performed += ctx => playerMovementRb2d.Run();
-			user.Actions.Move.canceled += ctx => playerMovementRb2d.StopRun();
+			_actions.Sprint.performed += ctx => playerMovementRb2d.Run();
+			_actions.Move.canceled += ctx => playerMovementRb2d.StopRun();
 			
 			//jump
-			user.Actions.Jump.performed += ctx => playerMovementRb2d.Jump();
+			_actions.Jump.performed += ctx => playerMovementRb2d.Jump();
 
 		}
 
@@ -162,16 +164,16 @@ namespace EvilOwl.Player.Input_System
 			physicsObject.enabled = true;
 			
 			//Move
-			user.Actions.Move.performed += ctx => playerMovementPhObj.Move(ctx);
-			user.Actions.Move.canceled += ctx => playerMovementPhObj.StopMove();
+			_actions.Move.performed += ctx => playerMovementPhObj.Move(ctx);
+			_actions.Move.canceled += ctx => playerMovementPhObj.StopMove();
 			
 			//Sprint
-			user.Actions.Sprint.performed += ctx => playerMovementPhObj.Run();
-			user.Actions.Sprint.canceled += ctx => playerMovementPhObj.StopRun();
+			_actions.Sprint.performed += ctx => playerMovementPhObj.Run();
+			_actions.Sprint.canceled += ctx => playerMovementPhObj.StopRun();
 			
 			//jump
-			user.Actions.Jump.performed += ctx => playerMovementPhObj.Jump();
-			user.Actions.Jump.canceled += ctx => playerMovementPhObj.StopJump();
+			_actions.Jump.performed += ctx => playerMovementPhObj.Jump();
+			_actions.Jump.canceled += ctx => playerMovementPhObj.StopJump();
 			
 		}
 

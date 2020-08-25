@@ -13,10 +13,8 @@ namespace EvilOwl.Player.User_Management
 		 *****************************/
 		public readonly MainControls Controls;
 		public readonly List<InputDevice> Devices;
-		
-		public MainControls.MainActions Actions;
-		
-		private InputUser _inputUser;
+
+		private InputUser _user;
 
 #pragma warning restore CS0649
 		/*****************************
@@ -27,10 +25,9 @@ namespace EvilOwl.Player.User_Management
 			Controls = new MainControls();
 			Devices = new List<InputDevice>();
 
-			_inputUser = InputUser.PerformPairingWithDevice(device: device);
-			_inputUser.AssociateActionsWithUser(Controls);
+			_user = InputUser.PerformPairingWithDevice(device: device);
+			_user.AssociateActionsWithUser(Controls);
 			Devices.Add(device);
-			Actions = Controls.Main;
 		}
 		/*****************************
 		 *          Update           *
@@ -41,13 +38,15 @@ namespace EvilOwl.Player.User_Management
 		 *****************************/
 		public void AddDevice(InputDevice device)
 		{
-			InputUser.PerformPairingWithDevice(device: device, _inputUser);
+			if(Devices.Contains(device)) return;
+			
+			InputUser.PerformPairingWithDevice(device: device, _user);
 			Devices.Add(device);
 		}
 		
 		public void RemoveDevice(InputDevice device)
 		{
-			_inputUser.UnpairDevice(device: device);
+			_user.UnpairDevice(device: device);
 			Devices.Remove(device);
 		}
 	}

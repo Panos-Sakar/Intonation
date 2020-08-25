@@ -68,6 +68,7 @@ namespace EvilOwl.Player.Spell_System
 		{
 			_spells = new List<GameObject>();
 			spellChainMaxed = false;
+			if (spellsParent == null) spellsParent = GameObject.FindGameObjectWithTag("SpellsParent");
 		}
 
 		/*****************************

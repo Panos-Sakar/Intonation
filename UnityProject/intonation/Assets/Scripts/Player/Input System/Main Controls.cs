@@ -351,6 +351,44 @@ namespace EvilOwl.Player.Input_System
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Interface"",
+            ""id"": ""ffc39475-d03f-4dbf-9f0b-6d19fcc532ec"",
+            ""actions"": [
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b3476bc-201e-4fb9-ab7c-b52f73f1e813"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""119cefde-119b-4f58-b0e1-bcd7fb83a0a2"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""244627ec-82f7-4213-a998-967f84711cdb"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -393,6 +431,9 @@ namespace EvilOwl.Player.Input_System
             m_Main_GreenSpell = m_Main.FindAction("GreenSpell", throwIfNotFound: true);
             m_Main_BlueSpell = m_Main.FindAction("BlueSpell", throwIfNotFound: true);
             m_Main_YellowSpell = m_Main.FindAction("YellowSpell", throwIfNotFound: true);
+            // Interface
+            m_Interface = asset.FindActionMap("Interface", throwIfNotFound: true);
+            m_Interface_Join = m_Interface.FindAction("Join", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -527,6 +568,39 @@ namespace EvilOwl.Player.Input_System
             }
         }
         public MainActions @Main => new MainActions(this);
+
+        // Interface
+        private readonly InputActionMap m_Interface;
+        private IInterfaceActions m_InterfaceActionsCallbackInterface;
+        private readonly InputAction m_Interface_Join;
+        public struct InterfaceActions
+        {
+            private @MainControls m_Wrapper;
+            public InterfaceActions(@MainControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Join => m_Wrapper.m_Interface_Join;
+            public InputActionMap Get() { return m_Wrapper.m_Interface; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(InterfaceActions set) { return set.Get(); }
+            public void SetCallbacks(IInterfaceActions instance)
+            {
+                if (m_Wrapper.m_InterfaceActionsCallbackInterface != null)
+                {
+                    @Join.started -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnJoin;
+                    @Join.performed -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnJoin;
+                    @Join.canceled -= m_Wrapper.m_InterfaceActionsCallbackInterface.OnJoin;
+                }
+                m_Wrapper.m_InterfaceActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Join.started += instance.OnJoin;
+                    @Join.performed += instance.OnJoin;
+                    @Join.canceled += instance.OnJoin;
+                }
+            }
+        }
+        public InterfaceActions @Interface => new InterfaceActions(this);
         private int m_KeyboardAndMouseSchemeIndex = -1;
         public InputControlScheme KeyboardAndMouseScheme
         {
@@ -555,6 +629,10 @@ namespace EvilOwl.Player.Input_System
             void OnGreenSpell(InputAction.CallbackContext context);
             void OnBlueSpell(InputAction.CallbackContext context);
             void OnYellowSpell(InputAction.CallbackContext context);
+        }
+        public interface IInterfaceActions
+        {
+            void OnJoin(InputAction.CallbackContext context);
         }
     }
 }

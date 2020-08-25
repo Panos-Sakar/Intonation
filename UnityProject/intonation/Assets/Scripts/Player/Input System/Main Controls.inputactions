@@ -336,6 +336,44 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Interface",
+            "id": "ffc39475-d03f-4dbf-9f0b-6d19fcc532ec",
+            "actions": [
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "2b3476bc-201e-4fb9-ab7c-b52f73f1e813",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "119cefde-119b-4f58-b0e1-bcd7fb83a0a2",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "244627ec-82f7-4213-a998-967f84711cdb",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
