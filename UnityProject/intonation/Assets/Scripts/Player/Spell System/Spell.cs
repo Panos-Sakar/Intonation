@@ -4,7 +4,7 @@ using Pathfinding;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Spell_System
 {
 	public class Spell : MonoBehaviour
 	{
@@ -65,20 +65,20 @@ namespace EvilOwl.Player
 			switch (type)
 			{
 				case SpellType.Red:
-					spellSprite.color = effectColours.redEffectColour;
-					pointLight.color = effectColours.redEffectColour;
+					spellSprite.color = effectColours.red;
+					pointLight.color = effectColours.red;
 					break;
 				case SpellType.Green:
-					spellSprite.color = effectColours.greenEffectColour;
-					pointLight.color = effectColours.greenEffectColour;
+					spellSprite.color = effectColours.green;
+					pointLight.color = effectColours.green;
 					break;
 				case SpellType.Blue:
-					spellSprite.color = effectColours.blueEffectColour;
-					pointLight.color = effectColours.blueEffectColour;
+					spellSprite.color = effectColours.blue;
+					pointLight.color = effectColours.blue;
 					break;
 				case SpellType.Yellow:
-					spellSprite.color = effectColours.yellowEffectColour;
-					pointLight.color = effectColours.yellowEffectColour;
+					spellSprite.color = effectColours.yellow;
+					pointLight.color = effectColours.yellow;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
@@ -100,6 +100,11 @@ namespace EvilOwl.Player
 		public void SetNextSpell(GameObject nextSpell)
 		{
 			_nextSpell = nextSpell;
+			if (_isSpellLeader && _useJoint)
+			{
+				joint.connectedBody = _nextSpell.GetComponent<Rigidbody2D>();
+				joint.enabled = true;
+			}
 		}
 
 		public void SetPreviousSpell(GameObject previousSpell)
@@ -111,8 +116,7 @@ namespace EvilOwl.Player
 		{
 			_isSpellLeader = true;
 			var spellLeader = gameObject.AddComponent(typeof(SpellLeader)) as SpellLeader;
-			if (spellLeader != null) spellLeader.Initialise(this);
-			
+			if (spellLeader != null) spellLeader.Initialise(this, gameObject.tag);
 		}
 
 		public void SetSpellTarget(GameObject target)

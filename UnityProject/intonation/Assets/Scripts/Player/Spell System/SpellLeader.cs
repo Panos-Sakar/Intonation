@@ -3,7 +3,7 @@ using EvilOwl.Core;
 using EvilOwl.Core.Interfaces;
 using UnityEngine;
 
-namespace EvilOwl.Player
+namespace EvilOwl.Player.Spell_System
 {
 	public class SpellLeader : MonoBehaviour
 	{
@@ -16,6 +16,7 @@ namespace EvilOwl.Player
 		private Spell _spellObject;
 		private List<SpellType> _spellChain;
 		private float _spellChainDamage;
+		private string _ignoreTag;
 		
 #pragma warning restore CS0649
 		/*****************************
@@ -29,11 +30,12 @@ namespace EvilOwl.Player
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-		public void Initialise(Spell spellObject)
+		public void Initialise(Spell spellObject, string ignoreTag)
 		{
 			_spellChain = new List<SpellType>();
 			_spellObject = spellObject;
 			_spellChainDamage = 0;
+			_ignoreTag = ignoreTag;
 		}
 		public void AddSpell(SpellType type)
 		{
@@ -44,8 +46,8 @@ namespace EvilOwl.Player
 		private void OnTriggerEnter2D(Collider2D other)
 		{
 			var otherObject = other.GetComponent<IDamageable>();
-
-			if (otherObject == null || !other.CompareTag("Enemy")) return;
+			
+			if (otherObject == null || other.CompareTag(_ignoreTag)) return;
 			
 			if (otherObject.Deflected(_spellChain))
 			{

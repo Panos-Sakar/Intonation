@@ -6,6 +6,7 @@ TagManager:
   tags:
   - KillZone
   - Enemy
+  - SpellsParent
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - 
   - Obstacle
   - PhysicsObject
-  - 
-  - 
-  - 
+  - Enemy
+  - Projectiles
+  - Player
   - 
   - 
   - 

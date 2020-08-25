@@ -2,7 +2,7 @@
     "name": "Main Controls",
     "maps": [
         {
-            "name": "Player",
+            "name": "Main",
             "id": "7cf7de7e-fea3-4cf6-836f-61f8e2d8a1d8",
             "actions": [
                 {
@@ -142,7 +142,7 @@
                     "id": "d10634e5-16d6-4b4a-a928-622a09c4785b",
                     "path": "<Gamepad>/leftStick/x",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone(min=0.1,max=1)",
                     "groups": "Gamepad",
                     "action": "Move",
                     "isComposite": false,
@@ -306,7 +306,7 @@
                     "name": "",
                     "id": "82169661-c03c-4ab9-8543-fbb255b93ade",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.2)",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "BlueSpell",
@@ -328,10 +328,48 @@
                     "name": "",
                     "id": "c7bf3a85-b186-4d3d-84f8-512005b85f31",
                     "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.2)",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "YellowSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Interface",
+            "id": "ffc39475-d03f-4dbf-9f0b-6d19fcc532ec",
+            "actions": [
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "2b3476bc-201e-4fb9-ab7c-b52f73f1e813",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "119cefde-119b-4f58-b0e1-bcd7fb83a0a2",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "244627ec-82f7-4213-a998-967f84711cdb",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

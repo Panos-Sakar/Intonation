@@ -171,10 +171,10 @@ GameObject:
   - component: {fileID: 5819266128302786764}
   - component: {fileID: 8699761711344736561}
   - component: {fileID: 5792180495095097106}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spell
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
