@@ -38,7 +38,6 @@ namespace EvilOwl.Player.Spell_System
 			
             for (var index = 0 ; index < spellChain.Count; index++)
             {
-                print($"Spells at position {index}: {spellChain[index]} other {othersSpellChain[index]}");
                 if (othersSpellChain[index] != spellChain[index]) return false;
             }
             print("Ha deflect");

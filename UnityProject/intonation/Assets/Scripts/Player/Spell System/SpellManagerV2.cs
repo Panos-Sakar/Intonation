@@ -18,6 +18,8 @@ namespace EvilOwl.Player.Spell_System
 		[Header("General")]
 		[SerializeField] private int maxSpells;
 		[SerializeField] private bool useJoints;
+		[SerializeField][PositiveValueOnly] private float searchRadius;
+		[SerializeField] private LayerMask searchLayerMask;
 
 		[Separator]
 		[Space(-15)]
@@ -57,18 +59,21 @@ namespace EvilOwl.Player.Spell_System
 		private List<GameObject> _spells;
 		[HideInInspector]
 		public bool spellChainMaxed;
-		
-		private bool _speedIncreased;
 
+		private Collider2D[] _hitColliders;
+		private bool _speedIncreased;
+		private Vector3 _playerPos;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
 		 *****************************/
 		private void Awake()
 		{
+			_hitColliders = new Collider2D[10];
 			_spells = new List<GameObject>();
 			spellChainMaxed = false;
 			if (spellsParent == null) spellsParent = GameObject.FindGameObjectWithTag("SpellsParent");
+			
 		}
 
 		/*****************************
@@ -142,22 +147,45 @@ namespace EvilOwl.Player.Spell_System
 		{
 			if(_spells.Count == 0) return;
 
-			var enemy = GameObject.FindWithTag("Enemy"); // TODO: Implement ray cast to find enemy
+			//var target = GameObject.FindWithTag("Enemy"); // TODO: Implement ray cast to find enemy
+			GameObject target = null;
+			
+			_playerPos = gameObject.transform.position;
+			var  numColliders = Physics2D.OverlapCircleNonAlloc(_playerPos, searchRadius, _hitColliders, searchLayerMask);
+			var minDist = 100000f;
 
-			if (enemy == null)
+			if ( numColliders <= 0)
 			{
-				_spells[0].GetComponent<Spell>().SelfDestroy();
+				//_spells[0].GetComponent<Spell>().SelfDestroy();
+				return;
 			}
-			else
+
+			for (var index = 0; index < _hitColliders.Length; index++)
 			{
-				if(increaseSpeedWhenSeeking) SetSpellChainSpeed(seekingSpeed);
-				SetSpellLight(3.5f);
-				ActivateSeekTarget(enemy);
+				var hitCollider = _hitColliders[index];
+				_hitColliders[index] = null;
 				
+				if (hitCollider == null ||
+				    gameObject.transform.parent.GetInstanceID() == hitCollider.transform.GetInstanceID()) continue;
+
+				var offset = _playerPos - hitCollider.transform.position;
+				var dist = Vector3.SqrMagnitude(offset);
+
+				if (!(dist < minDist)) continue;
+
+				target = hitCollider.gameObject;
+				minDist = dist;
 			}
+
+			if (target == null) return;
+			
+			if(increaseSpeedWhenSeeking) SetSpellChainSpeed(seekingSpeed);
+			SetSpellLight(3.5f);
+			ActivateSeekTarget(target);
 
 			spellChainMaxed = false;
 			_spells.Clear();
+			
 		}
 
 		public void Move(InputAction.CallbackContext context)
@@ -202,6 +230,11 @@ namespace EvilOwl.Player.Spell_System
 			
 			leaderCollider.enabled = true;
 			leaderDestSetter.target = seekTarget.transform;
+		}
+
+		private void OnDrawGizmos()
+		{
+			Gizmos.DrawWireSphere(gameObject.transform.position, searchRadius);
 		}
 	}
 }

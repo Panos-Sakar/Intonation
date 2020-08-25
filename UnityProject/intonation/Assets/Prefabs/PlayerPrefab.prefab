@@ -120,6 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpells: 3
   useJoints: 1
+  searchRadius: 100
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 5632
   spawnAtCenterOfParent: 1
   spellSpacing: 0
   spellCircleRadius: 0
