@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8388563e7a2b0434d8ef7e8a8f18e333, type: 3}
+  m_Name: SpellSprites
+  m_EditorClassIdentifier: 
+  red: {fileID: 21300000, guid: 08cb5cfc5745fb04187120e91313bdc8, type: 3}
+  green: {fileID: 21300000, guid: f537e9c42c62f8242a397192d8e2fa7d, type: 3}
+  blue: {fileID: 21300000, guid: bdb2c45946bdef24682c2bad88ba75b1, type: 3}
+  yellow: {fileID: 21300000, guid: 08cb5cfc5745fb04187120e91313bdc8, type: 3}

@@ -14,6 +14,7 @@ namespace EvilOwl.Player.Spell_System
 		 *****************************/
 		[SerializeField] private SpriteRenderer spellSprite;
 		[SerializeField] private SpellColors effectColours;
+		[SerializeField] private SpellSprites spellSprites;
 		[SerializeField] private Light2D pointLight;
 		[SerializeField] private AIDestinationSetter aStarDestinationSetter;
 		[SerializeField] private DistanceJoint2D joint;
@@ -69,18 +70,22 @@ namespace EvilOwl.Player.Spell_System
 				case SpellType.Red:
 					spellSprite.color = effectColours.red;
 					pointLight.color = effectColours.red;
+					spellSprite.sprite = spellSprites.red;
 					break;
 				case SpellType.Green:
 					spellSprite.color = effectColours.green;
 					pointLight.color = effectColours.green;
+					spellSprite.sprite = spellSprites.green;
 					break;
 				case SpellType.Blue:
 					spellSprite.color = effectColours.blue;
 					pointLight.color = effectColours.blue;
+					spellSprite.sprite = spellSprites.blue;
 					break;
 				case SpellType.Yellow:
 					spellSprite.color = effectColours.yellow;
 					pointLight.color = effectColours.yellow;
+					spellSprite.sprite = spellSprites.yellow;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
