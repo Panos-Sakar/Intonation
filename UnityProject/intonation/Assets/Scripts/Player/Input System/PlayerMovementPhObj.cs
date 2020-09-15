@@ -13,6 +13,7 @@ namespace EvilOwl.Player.Input_System
 		/*****************************
 		 *         Variables         *
 		 *****************************/
+		
 		[Header("References")]
 		[SerializeField] private PhysicsObject physicsObject;
 		

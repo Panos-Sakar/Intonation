@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using EvilOwl.Core;
+using System.Linq;
 using EvilOwl.Core.Interfaces;
 using UnityEngine;
 
-namespace EvilOwl.Enemy
+namespace EvilOwl.Core
 {
 	public class SpellChainCollider : MonoBehaviour , IDamageable
 	{
@@ -13,7 +13,7 @@ namespace EvilOwl.Enemy
 		 *****************************/
 
 		public List<SpellType> spellChain;
-		public float life;
+		public EntityStats stats;
 		
 #pragma warning restore CS0649
 		/*****************************
@@ -35,19 +35,16 @@ namespace EvilOwl.Enemy
 		{
 			if (spellChain.Count != othersSpellChain.Count) return false;
 			
-			for (var index = 0 ; index < spellChain.Count; index++)
-			{
-				print($"Spells at position {index}: {spellChain[index]} other {othersSpellChain[index]}");
-				if (othersSpellChain[index] != spellChain[index]) return false;
-			}
+			if (spellChain.Where((t, index) => othersSpellChain[index] != t).Any()) return false;
+
 			print("Ha deflect");
 			return true;
 		}
 
 		public void Damage(float damageAmount)
 		{
-			life -= damageAmount;
-			if(life <= 0) Destroy(gameObject);
+			stats.life -= damageAmount;
+			if(stats.life <= 0) stats.Kill();
 		}
 
 		public void AddSpell(SpellType spellType)

@@ -16,7 +16,7 @@ namespace EvilOwl.Core
 		[Header("Properties")]
 		[SerializeField] private float gravityModifier = 1f;
 		[SerializeField] private float minGroundNormalY = 0.65f;
-		[SerializeField][Layer] private int collisionLayer ;
+		[SerializeField][Layer] private int collisionLayer;
 
 		private ContactFilter2D _contactFilter;
 		private const float MinMoveDistance = 0.001f;

@@ -99,7 +99,7 @@
       "hash": "c051b95afaf1a099a0369b70fdea19bde5d8d100"
     },
     "com.unity.burst": {
-      "version": "1.3.4",
+      "version": "1.3.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -108,7 +108,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.cinemachine": {
-      "version": "2.6.1",
+      "version": "2.6.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

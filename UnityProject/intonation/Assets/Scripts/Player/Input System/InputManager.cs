@@ -38,7 +38,7 @@ namespace EvilOwl.Player.Input_System
 		[ConditionalField(nameof(triggerSpells))] 
 		[SerializeField] private SpellManagerV2 spellManager;
 		[ConditionalField(nameof(triggerSpells))] 
-		[SerializeField] private PlayerSpellChainCollider chainCollider;
+		[SerializeField] private SpellChainCollider chainCollider;
 		
 		[Separator()] [Space(-15)] [Header("Movement")]
 		
