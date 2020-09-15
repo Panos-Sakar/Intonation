@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace EvilOwl.Player.Spell_System
 {
-	public class SpellManagerV2 : MonoBehaviour
+	public class SpellManager : MonoBehaviour
 	{
 #pragma warning disable CS0649
 		/*****************************
@@ -232,7 +232,7 @@ namespace EvilOwl.Player.Spell_System
 			leaderDestSetter.target = seekTarget.transform;
 		}
 
-		private void OnDrawGizmos()
+		private void OnDrawGizmosSelected()
 		{
 			Gizmos.DrawWireSphere(gameObject.transform.position, searchRadius);
 		}

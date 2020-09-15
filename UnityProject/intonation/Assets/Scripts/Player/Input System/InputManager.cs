@@ -36,7 +36,7 @@ namespace EvilOwl.Player.Input_System
 		
 		[SerializeField] private bool triggerSpells;
 		[ConditionalField(nameof(triggerSpells))] 
-		[SerializeField] private SpellManagerV2 spellManager;
+		[SerializeField] private SpellManager spellManager;
 		[ConditionalField(nameof(triggerSpells))] 
 		[SerializeField] private SpellChainCollider chainCollider;
 		

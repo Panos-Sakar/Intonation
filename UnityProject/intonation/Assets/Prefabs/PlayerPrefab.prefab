@@ -820,10 +820,10 @@ GameObject:
   - component: {fileID: 724440651673760714}
   - component: {fileID: 7714479799142835284}
   - component: {fileID: 5177274467348226298}
+  - component: {fileID: 4448710290761410851}
   - component: {fileID: 4437998217291305749}
   - component: {fileID: 8324240158603011240}
   - component: {fileID: 1076525062151278419}
-  - component: {fileID: 4448710290761410851}
   m_Layer: 12
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -918,6 +918,26 @@ MonoBehaviour:
   playerMovementRb2d: {fileID: 8324240158603011240}
   triggerVfx: 1
   vfxManager: {fileID: 8264162685609490102}
+--- !u!114 &4448710290761410851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4437998217291305832}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37b8b561e7021f41a297a33a9e6ad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2D: {fileID: 4437998217291305749}
+  gravityModifier: 5
+  minGroundNormalY: 0.65
+  collisionLayer: 9
+  isGrounded: 0
+  isRunning: 0
+  velocity: {x: 0, y: 0}
+  targetVelocity: {x: 0, y: 0}
 --- !u!50 &4437998217291305749
 Rigidbody2D:
   serializedVersion: 4
@@ -976,26 +996,6 @@ MonoBehaviour:
   jumpForce: 40
   normalSpeed: 40
   runSpeed: 60
---- !u!114 &4448710290761410851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4437998217291305832}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37b8b561e7021f41a297a33a9e6ad16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb2D: {fileID: 4437998217291305749}
-  gravityModifier: 5
-  minGroundNormalY: 0.65
-  collisionLayer: 9
-  isGrounded: 0
-  isRunning: 0
-  velocity: {x: 0, y: 0}
-  targetVelocity: {x: 0, y: 0}
 --- !u!1 &5411196913370200861
 GameObject:
   m_ObjectHideFlags: 0
