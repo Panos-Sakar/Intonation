@@ -6,7 +6,7 @@
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		
+		public float spellTimerCooldown;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *

@@ -1,7 +1,7 @@
 ﻿using System;
 using EvilOwl.Core;
+using EvilOwl.Core.Spell_System;
 using EvilOwl.Player.Animation;
-using EvilOwl.Player.Spell_System;
 using EvilOwl.Player.User_Management;
 using EvilOwl.Player.Vfx;
 using MyBox;

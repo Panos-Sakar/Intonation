@@ -12426,6 +12426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8785647778729938238, guid: a68219ab64f7e9243ac5960ddd4ba450, type: 3}
+      propertyPath: spellsParent
+      value: 
+      objectReference: {fileID: 2016943922}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68219ab64f7e9243ac5960ddd4ba450, type: 3}
 --- !u!212 &3570476160121240775

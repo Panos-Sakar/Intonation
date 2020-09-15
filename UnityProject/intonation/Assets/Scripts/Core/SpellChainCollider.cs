@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EvilOwl.Core.Interfaces;
+using EvilOwl.Core.Stats;
 using UnityEngine;
 
 namespace EvilOwl.Core

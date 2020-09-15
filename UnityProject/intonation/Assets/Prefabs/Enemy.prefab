@@ -1,5 +1,102 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2485499661837514016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4514402848752720651}
+  - component: {fileID: 3234402727213321261}
+  m_Layer: 0
+  m_Name: TargetOnPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: 183f7b7549219ab47becb461a16df882, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4514402848752720651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485499661837514016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5355850768942196140}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3234402727213321261
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485499661837514016}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!1 &2781740782338516818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5355850768942196140}
+  - component: {fileID: 3130154091936121604}
+  m_Layer: 0
+  m_Name: Rotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5355850768942196140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781740782338516818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4514402848752720651}
+  m_Father: {fileID: 9154882597043239025}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3130154091936121604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781740782338516818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc8240a10c47314fba9de1c474a2ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: -103.5
 --- !u!1 &3297385909726214757
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,12 +219,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3297385910526874820}
-  - component: {fileID: 3297385910526874825}
-  - component: {fileID: 3297385910526874826}
+  - component: {fileID: 9042876786828721074}
   - component: {fileID: 7718732078295979195}
   - component: {fileID: 3297385910526874821}
+  - component: {fileID: 3297385910526874825}
+  - component: {fileID: 3297385910526874826}
   - component: {fileID: 3297385910526874824}
-  - component: {fileID: 9042876786828721074}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -147,9 +244,55 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 3297385910196233944}
+  - {fileID: 9154882597043239025}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9042876786828721074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297385910526874831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c28136bb319114783a7c31eda3ff7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellChainCollider: {fileID: 3297385910526874821}
+  spellManager: {fileID: 8785647778729938238}
+  stats: {fileID: 7718732078295979195}
+  aiIsActive: 1
+  currentState: {fileID: 11400000, guid: a4df5a40b77ff3c44945b50e9a354169, type: 2}
+--- !u!114 &7718732078295979195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297385910526874831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67286a82bdb51ed4ea33dd78db0862a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 20
+  spellTimerCooldown: 2
+--- !u!114 &3297385910526874821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297385910526874831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7865976a1bb5941803d55eec909055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellChain: 
+  stats: {fileID: 7718732078295979195}
 --- !u!70 &3297385910526874825
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -187,33 +330,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7718732078295979195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3297385910526874831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67286a82bdb51ed4ea33dd78db0862a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 20
---- !u!114 &3297385910526874821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3297385910526874831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7865976a1bb5941803d55eec909055, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellChain: 
-  stats: {fileID: 7718732078295979195}
 --- !u!114 &3297385910526874824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,15 +350,66 @@ MonoBehaviour:
   isRunning: 0
   velocity: {x: 0, y: 0}
   targetVelocity: {x: 0, y: 0}
---- !u!114 &9042876786828721074
+--- !u!1 &4309094773712484978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9154882597043239025}
+  - component: {fileID: 8785647778729938238}
+  m_Layer: 0
+  m_Name: SpellSystem
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9154882597043239025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309094773712484978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5355850768942196140}
+  m_Father: {fileID: 3297385910526874820}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8785647778729938238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3297385910526874831}
+  m_GameObject: {fileID: 4309094773712484978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c28136bb319114783a7c31eda3ff7f, type: 3}
+  m_Script: {fileID: 11500000, guid: baf9fc794e73f1f4aa4cc099dc4f9116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpells: 3
+  useJoints: 1
+  searchRadius: 100
+  searchLayerMask:
+    serializedVersion: 2
+    m_Bits: 5632
+  spawnAtCenterOfParent: 1
+  spellSpacing: 0
+  spellCircleRadius: 0
+  spellCircleOffset: 0
+  targetAtPlayer: {fileID: 2485499661837514016}
+  defaultSpeed: 15
+  increaseSpeedWhenSeeking: 1
+  seekingSpeed: 120
+  increaseSpeedWhenWalking: 1
+  walkingSpeed: 70
+  spellsParent: {fileID: 0}
+  spellPrefab: {fileID: 6111776527398995091, guid: 662a662791ab4b049aefe9b531f879f8, type: 3}
+  spellChainMaxed: 0

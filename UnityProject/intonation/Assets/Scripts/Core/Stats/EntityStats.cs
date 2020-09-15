@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EvilOwl.Core
+namespace EvilOwl.Core.Stats
 {
 	public abstract class EntityStats : MonoBehaviour
 	{
