@@ -1,7 +1,7 @@
-﻿using EvilOwl.Enemy.Ai.Actions;
-using EvilOwl.Enemy.Ai.Transitions;
+﻿using EvilOwl.Enemy.Ai.Transitions;
 using MyBox;
 using UnityEngine;
+using Action = EvilOwl.Enemy.Ai.Actions.Action;
 
 namespace EvilOwl.Enemy.Ai.States
 {
@@ -12,6 +12,8 @@ namespace EvilOwl.Enemy.Ai.States
 		/*****************************
 		 *         Variables         *
 		 *****************************/
+		[SerializeField] public string stateName;
+		
 		[Separator] [Space(-15)] [Header("Actions")]
 		
 		[SerializeField] private bool hasEnterStateAction;
@@ -65,6 +67,7 @@ namespace EvilOwl.Enemy.Ai.States
 				transition.nextState.EnterState(controller);
 				
 				controller.currentState = transition.nextState;
+				controller.OnStateChanged();
 			}
 		}
 	}

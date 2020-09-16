@@ -62,3 +62,6 @@ TagManager:
   - name: Vfx
     uniqueID: 784653485
     locked: 0
+  - name: Debug
+    uniqueID: 3302449839
+    locked: 0

@@ -4,6 +4,7 @@ using EvilOwl.Core.Stats;
 using EvilOwl.Enemy.Ai.States;
 using JetBrains.Annotations;
 using MyBox;
+using TMPro;
 using UnityEngine;
 
 namespace EvilOwl.Enemy.Ai
@@ -15,21 +16,19 @@ namespace EvilOwl.Enemy.Ai
 		 *         Variables         *
 		 *****************************/
 		[Header("References")]
-		[SerializeField] 
-		private SpellChainCollider spellChainCollider;
-		[SerializeField] 
-		private SpellManager spellManager;
-		[SerializeField] 
-		private EnemyStats stats;
+		
+		[SerializeField] private SpellChainCollider spellChainCollider;
+		[SerializeField] private SpellManager spellManager;
+		[SerializeField] private EnemyStats stats;
+
+		[SerializeField] private TextMeshProUGUI debugStateTmp;
 
 		[Header("Ai")] 
-		[SerializeField] 
-		private bool aiIsActive;
-		[SerializeField]
-		public State currentState;
+		
+		[SerializeField] private bool aiIsActive;
+		[SerializeField] public State currentState;
 		
 		private float _spellTimer;
-
 		public bool SpellChainMaxed => spellManager.spellChainMaxed;
 		
 #pragma warning restore CS0649
@@ -39,6 +38,7 @@ namespace EvilOwl.Enemy.Ai
 
 		private void Awake()
 		{
+			debugStateTmp.text = currentState.stateName;
 			_spellTimer = Time.time;
 		}
 
@@ -104,6 +104,11 @@ namespace EvilOwl.Enemy.Ai
 		{
 			spellManager.Fire();
 			spellChainCollider.ResetSpellChain();
+		}
+
+		public void OnStateChanged()
+		{
+			debugStateTmp.text = currentState.stateName;
 		}
 	}
 }

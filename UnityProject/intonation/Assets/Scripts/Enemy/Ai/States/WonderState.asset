@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a180024b32fd755459987a5247358811, type: 3}
   m_Name: WonderState
   m_EditorClassIdentifier: 
+  stateName: Wonder
   hasEnterStateAction: 0
   enterStateAction: {fileID: 0}
   actions:
