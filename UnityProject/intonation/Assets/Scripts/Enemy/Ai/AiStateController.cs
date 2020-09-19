@@ -19,7 +19,9 @@ namespace EvilOwl.Enemy.Ai
 		
 		[SerializeField] private SpellChainCollider spellChainCollider;
 		[SerializeField] private SpellManager spellManager;
+		// ReSharper disable once NotAccessedField.Local
 		[SerializeField] private EnemyStats stats;
+		[SerializeField] private EnemySharedStats sharedStats;
 		[SerializeField] private PhysicsObject physicsObject;
 
 		[SerializeField] private TextMeshProUGUI debugStateTmp;
@@ -34,7 +36,7 @@ namespace EvilOwl.Enemy.Ai
 		
 
 		public bool SpellChainMaxed => spellManager.spellChainMaxed;
-		public float Speed => stats.speed;
+		public float Speed => sharedStats.speed;
 		public Vector3 Position => gameObject.transform.position;
 		public GameObject Target { get; set; }
 		public Vector2 TargetSpeed
@@ -43,6 +45,7 @@ namespace EvilOwl.Enemy.Ai
 			set => physicsObject.targetVelocity = value;
 		}
 
+		[HideInInspector]
 		public Vector3 targetPosition;
 
 		public Vector3 GetNextPatrolPoint
@@ -85,7 +88,7 @@ namespace EvilOwl.Enemy.Ai
 
 		public void CastRandomSpell()
 		{
-			if ((Time.time - _spellTimer < stats.spellTimerCooldown) || (spellManager.spellChainMaxed)) return;
+			if ((Time.time - _spellTimer < sharedStats.spellTimerCooldown) || (spellManager.spellChainMaxed)) return;
 			
 			CreateSpell(SpellType.Blue);
 			_spellTimer = Time.time;

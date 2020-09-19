@@ -27,7 +27,6 @@ namespace EvilOwl.Enemy.Ai.Actions
 		public override void Act(AiStateController controller)
 		{
 			controller.TargetSpeed = targetSpeed;
-			Debug.Log($"Speed to: {targetSpeed}");
 		}
 	}
 }

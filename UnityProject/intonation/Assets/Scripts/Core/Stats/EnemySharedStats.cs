@@ -1,11 +1,16 @@
-﻿namespace EvilOwl.Core.Stats
+﻿using UnityEngine;
+
+namespace EvilOwl.Core.Stats
 {
-	public class EnemyStats : EntityStats
+	[CreateAssetMenu(fileName = "BaseEnemySharedStats", menuName = "Stats/EnemySharedStats")]
+	public class EnemySharedStats : ScriptableObject
 	{
 #pragma warning disable CS0649
 		/*****************************
 		 *         Variables         *
 		 *****************************/
+		public float speed;
+		public float spellTimerCooldown;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -18,10 +23,6 @@
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-
-		public override void Kill()
-		{
-			Destroy(gameObject);
-		}
+		
 	}
 }

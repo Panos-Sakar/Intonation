@@ -264,6 +264,7 @@ MonoBehaviour:
   spellChainCollider: {fileID: 3297385910526874821}
   spellManager: {fileID: 8785647778729938238}
   stats: {fileID: 7718732078295979195}
+  sharedStats: {fileID: 11400000, guid: 5e4975a388384f44f9f6334907b8c65c, type: 2}
   physicsObject: {fileID: 3297385910526874824}
   debugStateTmp: {fileID: 4291247273649296261}
   aiIsActive: 1
@@ -283,8 +284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 20
-  speed: 10
-  spellTimerCooldown: 2
 --- !u!114 &3297385910526874821
 MonoBehaviour:
   m_ObjectHideFlags: 0
