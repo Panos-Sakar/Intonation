@@ -20,17 +20,45 @@ namespace EvilOwl.Enemy.Ai
 		[SerializeField] private SpellChainCollider spellChainCollider;
 		[SerializeField] private SpellManager spellManager;
 		[SerializeField] private EnemyStats stats;
+		[SerializeField] private PhysicsObject physicsObject;
 
 		[SerializeField] private TextMeshProUGUI debugStateTmp;
 
-		[Header("Ai")] 
+		[Header("Ai")]
 		
 		[SerializeField] private bool aiIsActive;
 		[SerializeField] public State currentState;
+
+		[Header("Settings")] 
+		[SerializeField] private Transform[] patrolPositions;
 		
-		private float _spellTimer;
+
 		public bool SpellChainMaxed => spellManager.spellChainMaxed;
-		
+		public float Speed => stats.speed;
+		public Vector3 Position => gameObject.transform.position;
+		public GameObject Target { get; set; }
+		public Vector2 TargetSpeed
+		{
+			get => physicsObject.targetVelocity;
+			set => physicsObject.targetVelocity = value;
+		}
+
+		public Vector3 targetPosition;
+
+		public Vector3 GetNextPatrolPoint
+		{
+			get
+			{
+				var ret = patrolPositions[_nextPatrolPointIndex];
+				_nextPatrolPointIndex++;
+				if (_nextPatrolPointIndex >= patrolPositions.Length) _nextPatrolPointIndex = 0;
+				
+				return ret.position;
+			}
+		}
+
+		private float _spellTimer;
+		private int _nextPatrolPointIndex;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -38,6 +66,7 @@ namespace EvilOwl.Enemy.Ai
 
 		private void Awake()
 		{
+			targetPosition = patrolPositions[0].transform.position;
 			debugStateTmp.text = currentState.stateName;
 			_spellTimer = Time.time;
 		}

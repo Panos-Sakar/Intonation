@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EmptyState
   m_EditorClassIdentifier: 
   stateName: Empty
-  hasEnterStateAction: 0
-  enterStateAction: {fileID: 0}
+  hasEnterStateAction: 1
+  enterStateAction: {fileID: 11400000, guid: 72eca8ec36ea0ae49830fcb89982cb57, type: 2}
   actions: []
-  hasExitStateAction: 0
-  exitStateAction: {fileID: 0}
+  hasExitStateAction: 1
+  exitStateAction: {fileID: 11400000, guid: 689b372b0bcfe9d4d8e6463d09fcb4e0, type: 2}
   transitions: []

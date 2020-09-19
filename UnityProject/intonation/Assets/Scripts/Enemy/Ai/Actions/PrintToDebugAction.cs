@@ -1,13 +1,16 @@
-﻿namespace EvilOwl.Core.Stats
+﻿using UnityEngine;
+
+namespace EvilOwl.Enemy.Ai.Actions
 {
-	public class EnemyStats : EntityStats
+	[CreateAssetMenu(fileName = "PrintToDebugAction", menuName = "Ai/Actions/PrintToDebugAction")]
+	public class PrintToDebugAction : Action
 	{
 #pragma warning disable CS0649
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		public float speed;
-		public float spellTimerCooldown;
+		public string message;
+		
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -21,9 +24,9 @@
 		 *          Methods          *
 		 *****************************/
 
-		public override void Kill()
+		public override void Act(AiStateController controller)
 		{
-			Destroy(gameObject);
+			Debug.Log(message,controller.gameObject);
 		}
 	}
 }

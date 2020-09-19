@@ -35,8 +35,7 @@ namespace EvilOwl.Enemy.Ai.States
 		 *****************************/
 		public void UpdateState(AiStateController controller)
 		{
-			CheckForTransitions(controller);
-			ExecuteActions(controller);
+			if(CheckForTransitions(controller)) ExecuteActions(controller);
 		}
 
 		private void EnterState(AiStateController controller)
@@ -57,7 +56,7 @@ namespace EvilOwl.Enemy.Ai.States
 			}
 		}
 
-		private void CheckForTransitions(AiStateController controller)
+		private bool CheckForTransitions(AiStateController controller)
 		{
 			foreach (var transition in transitions)
 			{
@@ -68,7 +67,10 @@ namespace EvilOwl.Enemy.Ai.States
 				
 				controller.currentState = transition.nextState;
 				controller.OnStateChanged();
+				return false;
 			}
+
+			return true;
 		}
 	}
 }

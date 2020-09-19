@@ -145,8 +145,7 @@ namespace EvilOwl.Core.Spell_System
 		public void Fire()
 		{
 			if(_spells.Count == 0) return;
-
-			//var target = GameObject.FindWithTag("Enemy"); // TODO: Implement ray cast to find enemy
+			
 			GameObject target = null;
 			
 			_playerPos = gameObject.transform.position;

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateName: Wonder
   hasEnterStateAction: 0
-  enterStateAction: {fileID: 0}
+  enterStateAction: {fileID: 11400000, guid: 72eca8ec36ea0ae49830fcb89982cb57, type: 2}
   actions:
   - {fileID: 11400000, guid: 24b1ea083c9c2eb4a80c3cf02a3e6e0c, type: 2}
-  hasExitStateAction: 0
-  exitStateAction: {fileID: 0}
+  hasExitStateAction: 1
+  exitStateAction: {fileID: 11400000, guid: d9089370861eb074ab3f6a2c1ece0777, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: cf9bbb835f84e3148b4c680d9d0a5ef7, type: 2}
     nextState: {fileID: 11400000, guid: 952a901962f07f84986a802bffcdf9cd, type: 2}

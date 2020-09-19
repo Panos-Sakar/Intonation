@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cb06b12815b51459edcbf3c970e512, type: 3}
-  m_Name: LookDecision
+  m_Script: {fileID: 11500000, guid: 8594d4b03df0048479c29689dec07be1, type: 3}
+  m_Name: Start
   m_EditorClassIdentifier: 
-  searchRadius: 5
-  searchLayerMask:
-    serializedVersion: 2
-    m_Bits: 5632
+  message: Start

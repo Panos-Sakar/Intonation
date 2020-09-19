@@ -1,13 +1,16 @@
-﻿namespace EvilOwl.Core.Stats
+﻿using UnityEngine;
+
+namespace EvilOwl.Enemy.Ai.Actions
 {
-	public class EnemyStats : EntityStats
+	[CreateAssetMenu(fileName = "SetTargetSpeedAction", menuName = "Ai/Actions/SetTargetSpeedAction")]
+	public class SetTargetSpeedAction : Action
 	{
 #pragma warning disable CS0649
 		/*****************************
 		 *         Variables         *
 		 *****************************/
-		public float speed;
-		public float spellTimerCooldown;
+		public Vector2 targetSpeed;
+		
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -21,9 +24,10 @@
 		 *          Methods          *
 		 *****************************/
 
-		public override void Kill()
+		public override void Act(AiStateController controller)
 		{
-			Destroy(gameObject);
+			controller.TargetSpeed = targetSpeed;
+			Debug.Log($"Speed to: {targetSpeed}");
 		}
 	}
 }
