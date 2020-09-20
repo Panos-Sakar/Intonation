@@ -43,15 +43,21 @@ namespace EvilOwl.Enemy.Ai.Decisions
 				if (hitCollider == null ||
 				    controller.gameObject.transform.GetInstanceID() == hitCollider.transform.GetInstanceID()) continue;
 
+				if (hitCollider.gameObject.CompareTag("Enemy"))
+				{
+					//controller.targetPosition = controller.GetNextPatrolPoint;
+					return false;
+				}
+				
 				var offset = controller.Position - hitCollider.transform.position;
 				var dist = Vector3.SqrMagnitude(offset);
 
 				if (!(dist < minDist)) continue;
-
+				
 				controller.Target = hitCollider.gameObject;
 				minDist = dist;
 			}
-			
+
 			return controller.Target != null;
 		}
 	}

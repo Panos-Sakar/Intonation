@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a180024b32fd755459987a5247358811, type: 3}
-  m_Name: WonderState
+  m_Name: AgroSate
   m_EditorClassIdentifier: 
-  stateName: Wonder State
+  stateName: Agro Sate
   hasEnterStateAction: 0
   enterStateAction: {fileID: 0}
   actions:
-  - {fileID: 11400000, guid: 24b1ea083c9c2eb4a80c3cf02a3e6e0c, type: 2}
-  hasExitStateAction: 1
-  exitStateAction: {fileID: 11400000, guid: d9089370861eb074ab3f6a2c1ece0777, type: 2}
-  transitions:
-  - decision: {fileID: 11400000, guid: cf9bbb835f84e3148b4c680d9d0a5ef7, type: 2}
-    nextState: {fileID: 11400000, guid: b6ecdadbf96333c498e6d439a4210644, type: 2}
+  - {fileID: 11400000, guid: 2db6d6c1fd8e0624faebf4a45695cf3f, type: 2}
+  hasExitStateAction: 0
+  exitStateAction: {fileID: 0}
+  transitions: []

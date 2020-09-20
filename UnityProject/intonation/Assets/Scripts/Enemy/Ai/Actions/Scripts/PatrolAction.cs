@@ -30,13 +30,13 @@ namespace EvilOwl.Enemy.Ai.Actions
 		public override void Act(AiStateController controller)
 		{
 			_objectPosition = controller.gameObject.transform.position;
-			_distance = Vector3.Distance(_objectPosition, controller.targetPosition);
+			_distance = Vector3.Distance(_objectPosition, controller.TargetPosition);
 			
-			_direction = ((_objectPosition.x - controller.targetPosition.x) < 0) ? Vector3.right : Vector3.left;
+			_direction = ((_objectPosition.x - controller.TargetPosition.x) < 0) ? Vector3.right : Vector3.left;
 
-			if (_distance<1)
+			if (_distance<1 || controller.HasCollidedWithOtherEnemy)
 			{
-				controller.targetPosition = controller.GetNextPatrolPoint;
+				controller.TargetPosition = controller.GetNextPatrolPoint;
 			}
 			controller.TargetSpeed = _direction * controller.Speed;
 		}

@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cb06b12815b51459edcbf3c970e512, type: 3}
-  m_Name: LookDecision
+  m_Script: {fileID: 11500000, guid: aa03cbfab8b9e844992487a1c3a9bca3, type: 3}
+  m_Name: KeepDistance
   m_EditorClassIdentifier: 
-  searchRadius: 10
-  searchLayerMask:
-    serializedVersion: 2
-    m_Bits: 5632
+  minDistance: 50
+  maxDistance: 60

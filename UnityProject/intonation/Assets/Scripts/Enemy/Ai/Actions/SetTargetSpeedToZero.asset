@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc444d8307d350b4ebed172883359c98, type: 3}
+  m_Script: {fileID: 11500000, guid: 88bac5c8bddaeb646998c1da63ca9104, type: 3}
   m_Name: SetTargetSpeedToZero
   m_EditorClassIdentifier: 
   targetSpeed: {x: 0, y: 0}

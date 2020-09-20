@@ -5,7 +5,7 @@ using Action = EvilOwl.Enemy.Ai.Actions.Action;
 
 namespace EvilOwl.Enemy.Ai.States
 {
-	[CreateAssetMenu(fileName = "State", menuName = "Ai/State")] 
+	[CreateAssetMenu(fileName = "_State", menuName = "Ai/State")] 
 	public class State : ScriptableObject
 	{
 #pragma warning disable CS0649

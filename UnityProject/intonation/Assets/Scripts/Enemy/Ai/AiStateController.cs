@@ -34,6 +34,7 @@ namespace EvilOwl.Enemy.Ai
 		[Header("Settings")] 
 		[SerializeField] private Transform[] patrolPositions;
 		
+		//Public
 
 		public bool SpellChainMaxed => spellManager.spellChainMaxed;
 		public float Speed => sharedStats.speed;
@@ -44,10 +45,7 @@ namespace EvilOwl.Enemy.Ai
 			get => physicsObject.targetVelocity;
 			set => physicsObject.targetVelocity = value;
 		}
-
-		[HideInInspector]
-		public Vector3 targetPosition;
-
+		public Vector3 TargetPosition  { get; set; }
 		public Vector3 GetNextPatrolPoint
 		{
 			get
@@ -59,9 +57,23 @@ namespace EvilOwl.Enemy.Ai
 				return ret.position;
 			}
 		}
+		public bool HasCollidedWithOtherEnemy
+		{
+			get
+			{
+				if (!_collisionWithOtherEnemy) return false;
+				
+				_collisionWithOtherEnemy = false;
+				return true;
 
+			}
+			set => _collisionWithOtherEnemy = value;
+		}
+		//Privates 
+		
 		private float _spellTimer;
 		private int _nextPatrolPointIndex;
+		private bool _collisionWithOtherEnemy;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -69,7 +81,7 @@ namespace EvilOwl.Enemy.Ai
 
 		private void Awake()
 		{
-			targetPosition = patrolPositions[0].transform.position;
+			TargetPosition = patrolPositions[0].transform.position;
 			debugStateTmp.text = currentState.stateName;
 			_spellTimer = Time.time;
 		}
@@ -141,6 +153,11 @@ namespace EvilOwl.Enemy.Ai
 		public void OnStateChanged()
 		{
 			debugStateTmp.text = currentState.stateName;
+		}
+
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			if (gameObject.CompareTag(other.gameObject.tag)) _collisionWithOtherEnemy = true;
 		}
 	}
 }
