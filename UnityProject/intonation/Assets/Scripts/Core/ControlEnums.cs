@@ -15,5 +15,11 @@
         RandomInput = 3
     }
 
+    public enum SpellCastingState
+    {
+        Waiting = 0,
+        Casting = 1,
+        Firing = 2
+    }
 
 }

@@ -11,18 +11,20 @@ namespace EvilOwl.Core.Stats
 		 *****************************/
 		public float speed;
 		public float spellTimerCooldown;
+		public float addSpellCooldown;
+		public float fireSpellDelay;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
 		 *****************************/
-		
+
 		/*****************************
 		 *          Update           *
 		 *****************************/
-		
+
 		/*****************************
 		 *          Methods          *
 		 *****************************/
-		
+
 	}
 }

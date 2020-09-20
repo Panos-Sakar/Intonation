@@ -1,4 +1,5 @@
-﻿using EvilOwl.Core;
+﻿using System;
+using EvilOwl.Core;
 using EvilOwl.Core.Spell_System;
 using EvilOwl.Core.Stats;
 using EvilOwl.Enemy.Ai.States;
@@ -6,6 +7,7 @@ using JetBrains.Annotations;
 using MyBox;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 namespace EvilOwl.Enemy.Ai
 {
@@ -35,8 +37,8 @@ namespace EvilOwl.Enemy.Ai
 		[SerializeField] private Transform[] patrolPositions;
 		
 		//Public
-
-		public bool SpellChainMaxed => spellManager.spellChainMaxed;
+		
+		public int MaxSpellLength => spellManager.MaxSpellLength;
 		public float Speed => sharedStats.speed;
 		public Vector3 Position => gameObject.transform.position;
 		public GameObject Target { get; set; }
@@ -69,11 +71,18 @@ namespace EvilOwl.Enemy.Ai
 			}
 			set => _collisionWithOtherEnemy = value;
 		}
+		public SpellCastingState CastSpellState { set; get; }
+		public int SpellLength { set; get; }
 		//Privates 
 		
-		private float _spellTimer;
+		private float _castSpellTimerAcc;
+		private float _addSpellTimerAcc;
+		private float _fireSpellTimerAcc;
 		private int _nextPatrolPointIndex;
 		private bool _collisionWithOtherEnemy;
+
+		private Array _spellTypeValues;
+		private Random _random;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -81,9 +90,18 @@ namespace EvilOwl.Enemy.Ai
 
 		private void Awake()
 		{
+			_spellTypeValues = Enum.GetValues(typeof(SpellType));
+			_random = new Random(gameObject.GetInstanceID());
+			
 			TargetPosition = patrolPositions[0].transform.position;
+			
 			debugStateTmp.text = currentState.stateName;
-			_spellTimer = Time.time;
+			
+			_castSpellTimerAcc = Time.time;
+			_addSpellTimerAcc = _castSpellTimerAcc;
+			_fireSpellTimerAcc = _castSpellTimerAcc;
+			
+			CastSpellState = SpellCastingState.Waiting;
 		}
 
 		/*****************************
@@ -98,43 +116,41 @@ namespace EvilOwl.Enemy.Ai
 		 *          Methods          *
 		 *****************************/
 
-		public void CastRandomSpell()
+		public void AddRandomSpell()
 		{
-			if ((Time.time - _spellTimer < sharedStats.spellTimerCooldown) || (spellManager.spellChainMaxed)) return;
+			if (spellManager.spellChainMaxed) return;
 			
-			CreateSpell(SpellType.Blue);
-			_spellTimer = Time.time;
+			var randomBar = (SpellType)_spellTypeValues.GetValue(_random.Next(_spellTypeValues.Length));
+			
+			AddSpell(randomBar);
+			
+		}
+
+		public bool EnemyIsReadyToCastSpell()
+		{
+			if (Time.time - _castSpellTimerAcc < sharedStats.spellTimerCooldown) return false;
+
+			_castSpellTimerAcc = Time.time;
+			return true;
 		}
 		
-		[ButtonMethod()]
-		[UsedImplicitly]
-		public void CreateRedSpell()
+		public bool EnemyIsReadyToAddSpell()
 		{
-			CreateSpell(SpellType.Red);
+			if (Time.time - _addSpellTimerAcc < sharedStats.addSpellCooldown) return false;
+
+			_addSpellTimerAcc = Time.time;
+			return true;
 		}
 
-		[ButtonMethod()]
-		[UsedImplicitly]
-		public void CreateGreenSpell()
+		public bool EnemyIsReadyToFire()
 		{
-			CreateSpell(SpellType.Green);
+			if (Time.time - _fireSpellTimerAcc < sharedStats.fireSpellDelay) return false;
+
+			_fireSpellTimerAcc = Time.time;
+			return true;
 		}
 
-		[ButtonMethod()]
-		[UsedImplicitly]
-		public void CreateBlueSpell()
-		{
-			CreateSpell(SpellType.Blue);
-		}
-		
-		[ButtonMethod()]
-		[UsedImplicitly]
-		public void CreateYellowSpell()
-		{
-			CreateSpell(SpellType.Yellow);
-		}
-
-		private void CreateSpell(SpellType type)
+		private void AddSpell(SpellType type)
 		{
 			if(spellManager.spellChainMaxed) return;
 			
@@ -144,9 +160,9 @@ namespace EvilOwl.Enemy.Ai
 		
 		[ButtonMethod()]
 		[UsedImplicitly]
-		private void FireSpell()
+		public void FireSpell()
 		{
-			spellManager.Fire();
+			spellManager.Fire(findTarget: Target == null, target: Target);
 			spellChainCollider.ResetSpellChain();
 		}
 

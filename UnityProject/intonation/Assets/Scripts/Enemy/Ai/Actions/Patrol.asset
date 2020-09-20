@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ffb7754469a8524c9d8d5de449b3f95, type: 3}
-  m_Name: BaseEnemySharedStats
+  m_Script: {fileID: 11500000, guid: d9cec59cbaca57a42aa0b12d0446792b, type: 3}
+  m_Name: Patrol
   m_EditorClassIdentifier: 
-  speed: 15
-  spellTimerCooldown: 6
-  addSpellCooldown: 0.7
-  fireSpellDelay: 2

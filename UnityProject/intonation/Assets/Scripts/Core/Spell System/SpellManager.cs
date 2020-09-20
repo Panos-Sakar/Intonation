@@ -55,10 +55,11 @@ namespace EvilOwl.Core.Spell_System
 		[SerializeField] private GameObject spellsParent;
 		[SerializeField] private GameObject spellPrefab;
 
-		private List<GameObject> _spells;
 		[HideInInspector]
 		public bool spellChainMaxed;
-
+		public int MaxSpellLength => maxSpells;
+		
+		private List<GameObject> _spells;
 		private Collider2D[] _hitColliders;
 		private bool _speedIncreased;
 		private Vector3 _playerPos;
@@ -142,41 +143,42 @@ namespace EvilOwl.Core.Spell_System
 			_spells[0].GetComponent<SpellLeader>()?.AddSpell(newSpellScript.type);
 		}
 
-		public void Fire()
+		public void Fire(bool findTarget = true , GameObject target = null)
 		{
 			if(_spells.Count == 0) return;
-			
-			GameObject target = null;
-			
-			_playerPos = gameObject.transform.position;
-			var  numColliders = Physics2D.OverlapCircleNonAlloc(_playerPos, searchRadius, _hitColliders, searchLayerMask);
-			var minDist = 100000f;
 
-			if ( numColliders <= 0)
+			if (findTarget)
 			{
-				//_spells[0].GetComponent<Spell>().SelfDestroy();
-				return;
+				_playerPos = gameObject.transform.position;
+				var  numColliders = Physics2D.OverlapCircleNonAlloc(_playerPos, searchRadius, _hitColliders, searchLayerMask);
+				var minDist = 100000f;
+
+				if ( numColliders <= 0)
+				{
+					//_spells[0].GetComponent<Spell>().SelfDestroy();
+					return;
+				}
+
+				for (var index = 0; index < _hitColliders.Length; index++)
+				{
+					var hitCollider = _hitColliders[index];
+					_hitColliders[index] = null;
+					
+					if (hitCollider == null ||
+					    gameObject.transform.parent.GetInstanceID() == hitCollider.transform.GetInstanceID()) continue;
+
+					var offset = _playerPos - hitCollider.transform.position;
+					var dist = Vector3.SqrMagnitude(offset);
+
+					if (!(dist < minDist)) continue;
+
+					target = hitCollider.gameObject;
+					minDist = dist;
+				}
 			}
-
-			for (var index = 0; index < _hitColliders.Length; index++)
-			{
-				var hitCollider = _hitColliders[index];
-				_hitColliders[index] = null;
-				
-				if (hitCollider == null ||
-				    gameObject.transform.parent.GetInstanceID() == hitCollider.transform.GetInstanceID()) continue;
-
-				var offset = _playerPos - hitCollider.transform.position;
-				var dist = Vector3.SqrMagnitude(offset);
-
-				if (!(dist < minDist)) continue;
-
-				target = hitCollider.gameObject;
-				minDist = dist;
-			}
-
+			
 			if (target == null) return;
-			
+
 			if(increaseSpeedWhenSeeking) SetSpellChainSpeed(seekingSpeed);
 			SetSpellLight(3.5f);
 			ActivateSeekTarget(target);
