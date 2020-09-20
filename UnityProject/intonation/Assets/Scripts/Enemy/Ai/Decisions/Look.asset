@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0cb06b12815b51459edcbf3c970e512, type: 3}
-  m_Name: LookDecision
+  m_Name: Look
   m_EditorClassIdentifier: 
   searchRadius: 10
   searchLayerMask:

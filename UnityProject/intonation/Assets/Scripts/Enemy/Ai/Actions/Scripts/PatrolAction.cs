@@ -39,6 +39,7 @@ namespace EvilOwl.Enemy.Ai.Actions
 				controller.TargetPosition = controller.GetNextPatrolPoint;
 			}
 			controller.TargetSpeed = _direction * controller.Speed;
+			controller.SetGfxDirectionX = _direction.x;
 		}
 	}
 }

@@ -266,11 +266,11 @@ MonoBehaviour:
   stats: {fileID: 7718732078295979195}
   sharedStats: {fileID: 11400000, guid: 5e4975a388384f44f9f6334907b8c65c, type: 2}
   physicsObject: {fileID: 3297385910526874824}
+  gfx: {fileID: 3297385910196233951}
   debugStateTmp: {fileID: 4291247273649296261}
   aiIsActive: 1
   currentState: {fileID: 11400000, guid: a4df5a40b77ff3c44945b50e9a354169, type: 2}
   patrolPositions: []
-  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7718732078295979195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: -0.05}
+  m_Offset: {x: 0, y: -0.05}
   m_Size: {x: 0.29, y: 0.48}
   m_Direction: 0
 --- !u!50 &3297385910526874826

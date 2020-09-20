@@ -40,15 +40,19 @@ namespace EvilOwl.Enemy.Ai.Actions
 			{
 				_direction = ((_objectPosition.x - _targetPosition.x) < 0) ? Vector3.left : Vector3.right;
 				controller.TargetSpeed = _direction * controller.Speed;
+				controller.SetGfxDirectionX = _direction.x;
 			}
 			else if (_distance > maxDistance)
 			{
 				_direction = ((_objectPosition.x - _targetPosition.x) < 0) ? Vector3.right : Vector3.left;
 				controller.TargetSpeed = _direction * controller.Speed;
+				controller.SetGfxDirectionX = _direction.x;
 			}
 			else
 			{
+				_direction = ((_objectPosition.x - _targetPosition.x) < 0) ? Vector3.right : Vector3.left;
 				controller.TargetSpeed = Vector2.zero;
+				controller.SetGfxDirectionX = _direction.x;
 			}
 			
 		}

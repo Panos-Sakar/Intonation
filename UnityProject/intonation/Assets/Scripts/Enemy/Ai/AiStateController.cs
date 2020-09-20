@@ -25,7 +25,7 @@ namespace EvilOwl.Enemy.Ai
 		[SerializeField] private EnemyStats stats;
 		[SerializeField] private EnemySharedStats sharedStats;
 		[SerializeField] private PhysicsObject physicsObject;
-
+		[SerializeField] private GameObject gfx;
 		[SerializeField] private TextMeshProUGUI debugStateTmp;
 
 		[Header("Ai")]
@@ -37,17 +37,24 @@ namespace EvilOwl.Enemy.Ai
 		[SerializeField] private Transform[] patrolPositions;
 		
 		//Public
-		
 		public int MaxSpellLength => spellManager.MaxSpellLength;
 		public float Speed => sharedStats.speed;
+		public int SpellLength { set; get; }
 		public Vector3 Position => gameObject.transform.position;
 		public GameObject Target { get; set; }
+		public Vector3 TargetPosition  { get; set; }
+		public SpellCastingState CastSpellState { set; get; }
 		public Vector2 TargetSpeed
 		{
 			get => physicsObject.targetVelocity;
 			set => physicsObject.targetVelocity = value;
 		}
-		public Vector3 TargetPosition  { get; set; }
+		public float SetGfxDirectionX
+		{
+			get => gfx.transform.localScale.x;
+			set => gfx.transform.localScale = new Vector3(value<0? -1f:1f,1,1);
+		}
+
 		public Vector3 GetNextPatrolPoint
 		{
 			get
@@ -71,18 +78,17 @@ namespace EvilOwl.Enemy.Ai
 			}
 			set => _collisionWithOtherEnemy = value;
 		}
-		public SpellCastingState CastSpellState { set; get; }
-		public int SpellLength { set; get; }
+
 		//Privates 
-		
 		private float _castSpellTimerAcc;
 		private float _addSpellTimerAcc;
 		private float _fireSpellTimerAcc;
 		private int _nextPatrolPointIndex;
 		private bool _collisionWithOtherEnemy;
-
+		
 		private Array _spellTypeValues;
 		private Random _random;
+		
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
