@@ -13,7 +13,7 @@ namespace EvilOwl.Enemy.Ai.Actions
 		private float _distance;
 		private Vector3 _direction;
 		private Vector3 _objectPosition;
-		
+		private Vector3 _targetPosition;
 #pragma warning restore CS0649
 		/*****************************
 		 *           Init            *
@@ -30,12 +30,14 @@ namespace EvilOwl.Enemy.Ai.Actions
 		public override void Act(AiStateController controller)
 		{
 			_objectPosition = controller.gameObject.transform.position;
-			_distance = Vector3.Distance(_objectPosition, controller.TargetPosition);
+			_targetPosition = controller.TargetPosition;
+			_distance = Vector3.Distance(_objectPosition, _targetPosition);
 			
-			_direction = ((_objectPosition.x - controller.TargetPosition.x) < 0) ? Vector3.right : Vector3.left;
+			_direction = ((_objectPosition.x - _targetPosition.x) < 0) ? Vector3.right : Vector3.left;
 
-			if (_distance<1 || controller.HasCollidedWithOtherEnemy)
+			if (controller.HasCollidedWithOtherEnemy || _distance<1)
 			{
+				Debug.Log(controller.gameObject);
 				controller.TargetPosition = controller.GetNextPatrolPoint;
 			}
 			controller.TargetSpeed = _direction * controller.Speed;

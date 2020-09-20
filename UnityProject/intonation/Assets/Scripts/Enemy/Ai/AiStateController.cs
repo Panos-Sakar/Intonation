@@ -172,12 +172,24 @@ namespace EvilOwl.Enemy.Ai
 			spellChainCollider.ResetSpellChain();
 		}
 
+		public void DestroySpell()
+		{
+			//TODO: Create function to destroy spell in spellManager
+			FireSpell();
+		}
+
 		public void OnStateChanged()
 		{
 			debugStateTmp.text = currentState.stateName;
 		}
 
-		private void OnTriggerEnter2D(Collider2D other)
+		// private void OnTriggerEnter2D(Collider2D other)
+		// {
+		//TODO: Why dis tho?
+		// 	if (gameObject.CompareTag(other.gameObject.tag)) _collisionWithOtherEnemy = true;
+		// }
+
+		private void OnTriggerStay2D(Collider2D other)
 		{
 			if (gameObject.CompareTag(other.gameObject.tag)) _collisionWithOtherEnemy = true;
 		}

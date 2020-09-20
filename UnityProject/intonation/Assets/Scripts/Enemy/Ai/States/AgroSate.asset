@@ -18,8 +18,10 @@ MonoBehaviour:
   actions:
   - {fileID: 11400000, guid: 2db6d6c1fd8e0624faebf4a45695cf3f, type: 2}
   - {fileID: 11400000, guid: b72414df1dd4b054fa2be5ab490c402b, type: 2}
-  hasExitStateAction: 0
-  exitStateAction: {fileID: 0}
+  hasExitStateAction: 1
+  exitStateAction: {fileID: 11400000, guid: 8c1e8d62e7e6a45499ab4cbefdcd0363, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 2a729fd09ccfbdf4f87aed8cb2e7d76a, type: 2}
+    nextState: {fileID: 11400000, guid: a4df5a40b77ff3c44945b50e9a354169, type: 2}
+  - decision: {fileID: 11400000, guid: 3fbca0e0e38bbaf429390f18b89215ec, type: 2}
     nextState: {fileID: 11400000, guid: a4df5a40b77ff3c44945b50e9a354169, type: 2}
