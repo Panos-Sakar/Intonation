@@ -35,11 +35,9 @@ namespace EvilOwl.Enemy.Ai.Actions
 			
 			_direction = ((_objectPosition.x - _targetPosition.x) < 0) ? Vector3.right : Vector3.left;
 
-			if (controller.HasCollidedWithOtherEnemy || _distance<1)
-			{
-				Debug.Log(controller.gameObject);
+			if (controller.HasCollidedWithOtherEnemy || _distance<1) 
 				controller.TargetPosition = controller.GetNextPatrolPoint;
-			}
+
 			controller.TargetSpeed = _direction * controller.Speed;
 			controller.SetGfxDirectionX = _direction.x;
 		}
