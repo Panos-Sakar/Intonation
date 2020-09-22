@@ -22,7 +22,7 @@ namespace EvilOwl.Core.Spell_System
 		private float _spacing;
 		public SpellType type;
 		private bool _useJoint;
-		
+
 		private bool _isSpellLeader;
 		private GameObject _previousSpell;
 		private GameObject _nextSpell;
@@ -32,6 +32,11 @@ namespace EvilOwl.Core.Spell_System
 		private float _lerpStart;
 		private float _lerpPercent;
 		private int _ignoreInstanceId;
+
+		private GameObject _target;
+		private bool _spellIsActive;
+
+		public int GetTargetInstanceId => _target != null? _target.transform.GetInstanceID() : -1;
 
 #pragma warning restore CS0649
 
@@ -50,7 +55,10 @@ namespace EvilOwl.Core.Spell_System
 				_lerpPercent += 0.05f;
 				if (_lerpPercent > 1) _lerpLight = false;
 			}
+
+			if (!_spellIsActive) return;
 			
+			if(_target == null) SelfDestroy();
 		}
 
 		/*****************************
@@ -135,6 +143,16 @@ namespace EvilOwl.Core.Spell_System
 				joint.enabled = true;
 				joint.connectedBody = aStarDestinationSetter.target.GetComponent<Rigidbody2D>();
 			}
+		}
+
+		public void SetSpellSeekTarget(GameObject seekTarget)
+		{
+			if (_isSpellLeader)
+			{
+				_target = seekTarget;
+				_spellIsActive = true;
+			}
+
 		}
 
 		public void SelfDestroy()

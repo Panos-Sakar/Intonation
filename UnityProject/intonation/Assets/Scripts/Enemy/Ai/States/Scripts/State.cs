@@ -17,7 +17,7 @@ namespace EvilOwl.Enemy.Ai.States
 		[Separator] [Space(-15)] [Header("Actions")]
 		
 		[SerializeField] private bool hasEnterStateAction;
-		[ConditionalField(nameof(hasEnterStateAction))] 
+		[ConditionalField(nameof(hasEnterStateAction))]
 		[SerializeField] private Action enterStateAction;
 		
 		[SerializeField] private Action[] actions;

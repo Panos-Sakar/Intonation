@@ -45,10 +45,13 @@ namespace EvilOwl.Core.Spell_System
 		private void OnTriggerEnter2D(Collider2D other)
 		{
 			var otherObject = other.GetComponent<IDamageable>();
-			if (otherObject == null || other.gameObject.transform.GetInstanceID() == _ignoreInstanceId)
-			{
-				return;
-			}
+			var otherInstanceId = other.gameObject.transform.GetInstanceID();
+			var spell = gameObject.GetComponent<Spell>();
+			
+			if (otherObject == null || otherInstanceId == _ignoreInstanceId) return;
+
+			if (otherInstanceId != spell.GetTargetInstanceId) return;
+			
 			if (otherObject.Deflected(_spellChain))
 			{
 				_spellObject.SelfDestroy();
@@ -58,6 +61,7 @@ namespace EvilOwl.Core.Spell_System
 				otherObject.Damage(_spellChainDamage);
 				_spellObject.SelfDestroy();
 			}
+
 		}
 	}
 }

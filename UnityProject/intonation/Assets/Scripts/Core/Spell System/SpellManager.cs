@@ -130,7 +130,9 @@ namespace EvilOwl.Core.Spell_System
 			}
 			else
 			{
-				spellScript.PlaceSpellAroundCircle(spellsParent.transform.localPosition, spellCircleRadius, spellCircleOffset);
+				spellScript.PlaceSpellAroundCircle(
+					spellsParent.transform.localPosition, 
+					spellCircleRadius, spellCircleOffset);
 			}
 		}
 
@@ -150,7 +152,8 @@ namespace EvilOwl.Core.Spell_System
 			if (findTarget)
 			{
 				_playerPos = gameObject.transform.position;
-				var  numColliders = Physics2D.OverlapCircleNonAlloc(_playerPos, searchRadius, _hitColliders, searchLayerMask);
+				var  numColliders = Physics2D.OverlapCircleNonAlloc(
+					_playerPos, searchRadius, _hitColliders, searchLayerMask);
 				var minDist = 100000f;
 
 				if ( numColliders <= 0)
@@ -227,9 +230,12 @@ namespace EvilOwl.Core.Spell_System
 		{
 			var leaderDestSetter = _spells[0].GetComponent<AIDestinationSetter>();
 			var leaderCollider = _spells[0].GetComponent<CircleCollider2D>();
+			var leaderSpell = _spells[0].GetComponent<Spell>();
 			
 			leaderCollider.enabled = true;
 			leaderDestSetter.target = seekTarget.transform;
+			leaderSpell.SetSpellSeekTarget(seekTarget);
+			
 		}
 
 		private void OnDrawGizmosSelected()
